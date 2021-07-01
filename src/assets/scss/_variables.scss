@@ -1,0 +1,31 @@
+$white: #ffffff !default;
+
+$brand-green: #25a1af;
+$brand-white: #f9f9f9;
+$brand-black: #1e1e1e;
+$brand-white: rgba($white, 0.86);
+$brand-off-white: rgba($white, 0.56);
+$brand-card-bg: rgba($white, 0.12);
+$brand-card-selected: rgba($white, 0.36);
+$modal-message: #6c6c6c;
+$small-title: #3b3b3b;
+$card-background: #d8d8d8;
+
+$primary: $brand-green;
+$secondary: $brand-white;
+$card-max-width: 640px;
+
+$grid-breakpoints: (
+        xs: 0,
+        vs: 320px,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px
+);
+
+@import "../../../node_modules/bootstrap/scss/variables";
+$brand-font-family: 'Lato', $font-family-base;
+
+//Layout
+$sidebar-width: 15.625rem
