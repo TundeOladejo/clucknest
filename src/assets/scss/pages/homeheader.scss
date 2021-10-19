@@ -1,0 +1,33 @@
+@import "../base.scss";
+
+nav {
+  background-color: $white;
+  color: $white;
+  padding: 40px 15px;
+
+  @include media-breakpoint-down(md) {
+    padding: 10px 15px;
+  }
+
+  a {
+    color: $white;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  .header {
+    &-brand {
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    &-link {
+      font-size: 18px;
+      font-weight: 500;
+      color: $brand-blue;
+    }
+  }
+      
+}

@@ -1,0 +1,31 @@
+@import "../base.scss";
+
+.home-logo {
+  font-size: 36px;
+  display: flex;
+  justify-content: right;
+  color: $orange;
+}
+
+.right-side {
+  background-image: url("../assets/img/lady-with-hens.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  padding: 100px 70px 20px 70px;
+
+  &__heading {
+    color: $orange;
+    font-weight: bold;
+  }
+}
+
+.btnSubmit {
+  background-color: $orange;
+  color: $white;
+}

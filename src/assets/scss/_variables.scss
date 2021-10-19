@@ -1,8 +1,9 @@
 $white: #ffffff !default;
 
-$brand-green: #25a1af;
+$brand-blue: #113537;
 $brand-white: #f9f9f9;
 $brand-black: #1e1e1e;
+$brand-orange: #f26430;
 $brand-white: rgba($white, 0.86);
 $brand-off-white: rgba($white, 0.56);
 $brand-card-bg: rgba($white, 0.12);
@@ -11,8 +12,11 @@ $modal-message: #6c6c6c;
 $small-title: #3b3b3b;
 $card-background: #d8d8d8;
 
-$primary: $brand-green;
-$secondary: $brand-white;
+$orange: #c05746;
+$gray: #979799;
+
+$brand-primary: $brand-blue;
+$brand-secondary: $brand-orange;
 $card-max-width: 640px;
 
 $grid-breakpoints: (
@@ -24,8 +28,18 @@ $grid-breakpoints: (
         xl: 1200px
 );
 
+//Font size
+$font-xs: 14px;
+$font-sm: 16px;
+$font-md: 19px;
+$font-lg: 24px;
+
+$form-border-radius: 5px;
+
 @import "../../../node_modules/bootstrap/scss/variables";
 $brand-font-family: 'Lato', $font-family-base;
+
+$body-font: 15px;
 
 //Layout
 $sidebar-width: 15.625rem

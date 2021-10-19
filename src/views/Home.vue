@@ -1,17 +1,20 @@
 <template>
-<div class="homepage pt-5">
-    <h1>Welcome to Clucknest</h1>
-    <button type="button" class="btn btn-outline-success mt-3">Proceed</button>
-
-    <i class="bi-alarm"></i>
-</div>
+  <div class="homepage">
+    <HomeHeader />
+    <HomepageHero />
+  </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import HomeHeader from "@/components/layouts/HomeHeader";
+import HomepageHero from "../components/HomepageHero";
 
 export default {
-    name: "Home",
+  name: "Home",
+  components: {
+    HomeHeader,
+    HomepageHero,
+  },
 };
 </script>
 

@@ -1,0 +1,51 @@
+@import '../base';
+
+.form-input {
+  &__wrapper {
+    padding-bottom: 20px;
+    position: relative;
+    
+    label {
+      display: flex;
+      justify-content: flex-start;
+      font-size: $body-font;
+      color: $brand-black;
+    }
+
+    input, select {
+      padding: 15px 20px 14px 20px;
+      font-size: $font-xs;
+      border: 1px solid $orange;
+      background-color: $white;
+      border-radius: $form-border-radius;
+      box-shadow: none;
+      &:active, &:focus {
+          outline: none;
+      };
+      &:active + .icon, &:focus + .icon {
+          color: $brand-primary;
+      };
+      &[type="email"] {
+          -webkit-user-select: none;  
+          -moz-user-select: none;  
+          -ms-user-select: none;  
+          -o-user-select: none;  
+          user-select: none;
+      }
+    }
+    .icon {
+      top: 40px;
+      right: 16px;
+      font-size: $font-lg;
+      color: $gray
+    }
+    .error-msg {
+      margin-bottom: 0.3rem;
+      font-size: $font-size-base;
+      color: $red;
+    }
+  }
+  &__text-spacing {
+    letter-spacing: 10px;
+  }
+}
