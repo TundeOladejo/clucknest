@@ -1,7 +1,9 @@
 <template>
   <div class="register">
-    <div class="row mx-0">
-      <div class="col-md-5 right-side"></div>
+    <div class="row">
+      <div class="col-md-5 right-side">
+        <img src="../assets/img/lady-with-hens.jpg" class="img-fluid" alt="" srcset="">
+      </div>
       <div class="col-md-7 left-side">
         <router-link to="/" class="home-logo">
           <i class="bi bi-house"></i>
@@ -23,7 +25,7 @@
                     label="First Name"
                     id="firstName"
                     placeholder="Ishola"
-                    @input="customerInfo.registrationNumber = $event"
+                    @input="firstName = $event"
                     @change="onChange"
                   />
                 </div>
@@ -33,7 +35,7 @@
                     label="Last Name"
                     id="lastName"
                     placeholder="Qudus"
-                    @input="customerInfo.chasisNumber = $event"
+                    @input="lastName = $event"
                     @change="onChange"
                   />
                 </div>
@@ -45,7 +47,7 @@
                     label="Email"
                     id="email"
                     placeholder="abc@example.com"
-                    @input="customerInfo.engineNumber = $event"
+                    @input="email = $event"
                     @change="onChange"
                   />
                 </div>
@@ -57,7 +59,7 @@
                     label="Password"
                     id="password"
                     placeholder="Enter password"
-                    @input="customerInfo.yearModel = $event"
+                    @input="password = $event"
                     @change="onChange"
                   />
                 </div>
@@ -67,7 +69,7 @@
                     label="Confirm Password"
                     id="confirmPassword"
                     placeholder="Confirm Password"
-                    @input="customerInfo.vehicleColor = $event"
+                    @input="confirmPassword = $event"
                     @change="onChange"
                   />
                 </div>
@@ -76,7 +78,7 @@
           </div>
         </form>
 
-        <Button type="submit" btnText="Register" btnClass="btnSubmit" />
+        <Button type="submit" btnText="Register" btnClass="btnSubmit" @click="submit" />
 
         <p class="text-center mt-3">
           <em>Already registered? click </em
@@ -97,6 +99,36 @@ export default {
     FormInput,
     Button,
   },
+  data() {
+    return {
+      firstName: null,
+      lastName: null,
+      email: null,
+      password: null,
+      confirmPassword: null
+    }
+  },
+  methods: {
+    validate: function () {
+        this.isValid = !!(
+            this.firstName &&
+            this.lastName &&
+            this.email &&
+            this.password &&
+            this.confirmPassword
+        );
+    },
+
+    onChange: function () {
+        this.validate();
+    },
+
+    submit: function () {
+      this.$router.push({
+          name: "Main",
+      });
+    }
+  }
 };
 </script>
 

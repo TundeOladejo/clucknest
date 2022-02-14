@@ -1,7 +1,9 @@
 <template>
   <div class="login">
-    <div class="row mx-0">
-      <div class="col-md-5 right-side"></div>
+    <div class="row">
+      <div class="col-md-5 right-side">
+        <img src="../assets/img/lady-with-hens.jpg" class="img-fluid" alt="" srcset="">
+      </div>
       <div class="col-md-7 left-side">
         <router-link to="/" class="home-logo">
           <i class="bi bi-house"></i>
@@ -19,7 +21,7 @@
                     label="Email"
                     id="email"
                     placeholder="abc@example.com"
-                    @input="customerInfo.engineNumber = $event"
+                    @input="email = $event"
                     @change="onChange"
                   />
                 </div>
@@ -29,7 +31,7 @@
                     label="Password"
                     id="password"
                     placeholder="Enter password"
-                    @input="customerInfo.yearModel = $event"
+                    @input="password = $event"
                     @change="onChange"
                   />
                 </div>
@@ -65,7 +67,4 @@ export default {
 <style lang="scss" scoped>
 @import "@/assets/scss/pages/getstarted.scss";
 
-.login {
-  height: 100%;
-}
 </style>
