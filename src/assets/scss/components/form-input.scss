@@ -9,13 +9,13 @@
       display: flex;
       justify-content: flex-start;
       font-size: $body-font;
-      color: $brand-black;
+      color: $headline;
     }
 
     input, select {
       padding: 15px 20px 14px 20px;
-      font-size: $font-xs;
-      border: 1px solid $orange;
+      font-size: $font-md;
+      border: 1px solid $button;
       background-color: $white;
       border-radius: $form-border-radius;
       box-shadow: none;
@@ -23,7 +23,7 @@
           outline: none;
       };
       &:active + .icon, &:focus + .icon {
-          color: $brand-primary;
+          color: $background;
       };
       &[type="email"] {
           -webkit-user-select: none;  

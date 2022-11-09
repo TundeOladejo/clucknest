@@ -1,8 +1,8 @@
 @import "../base.scss";
 
 nav {
-  background-color: $white;
-  color: $white;
+  background-color: $background;
+  color: $button-text;
   padding: 40px 15px;
 
   @include media-breakpoint-down(md) {
@@ -10,24 +10,27 @@ nav {
   }
 
   a {
-    color: $white;
+    color: $button;
 
     &:hover {
-      color: $white;
+      color: $button;
     }
+  }   
+}
+
+.header {
+  &-brand {
+    font-size: 36px;
+    font-weight: bold;
   }
 
-  .header {
-    &-brand {
-      font-size: 36px;
-      font-weight: bold;
-    }
+  &-link {
+    font-size: 18px;
+    font-weight: 500;
+    color: $headline !important;
 
-    &-link {
-      font-size: 18px;
-      font-weight: 500;
-      color: $brand-blue;
+    &:hover {
+      color: $button;
     }
   }
-      
 }

@@ -1,0 +1,12 @@
+@import "../base";
+
+.main {
+    background-color: $white;
+}
+
+.main-header .logout {
+    padding: 5px 10px;
+    background-color: $button;
+    color: $headline;
+    border-radius: 5px;
+}

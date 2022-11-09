@@ -24,10 +24,10 @@ body {
   }
 
   &-secondary {
-    background-color: $brand-black;
+    background-color: $button-text;
 
     &:hover {
-      background-color: darken($brand-black, 10%);
+      background-color: darken($button-text, 10%);
     }
   }
 

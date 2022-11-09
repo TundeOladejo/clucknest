@@ -1,22 +1,20 @@
 $white: #ffffff !default;
 
-$brand-blue: #113537;
-$brand-white: #f9f9f9;
-$brand-black: #1e1e1e;
-$brand-orange: #f26430;
-$brand-white: rgba($white, 0.86);
-$brand-off-white: rgba($white, 0.56);
+$background: #eff0f3;
+$headline: #0d0d0d;
+$paragraph: #2a2a2a;
+$button: #ff8e3c;
+$button-text: #0d0d0d;
+
 $brand-card-bg: rgba($white, 0.12);
 $brand-card-selected: rgba($white, 0.36);
 $modal-message: #6c6c6c;
 $small-title: #3b3b3b;
 $card-background: #d8d8d8;
 
-$orange: #c05746;
+$tertiary: #d9376e;
 $gray: #979799;
 
-$brand-primary: $brand-blue;
-$brand-secondary: $brand-orange;
 $card-max-width: 640px;
 
 $grid-breakpoints: (
