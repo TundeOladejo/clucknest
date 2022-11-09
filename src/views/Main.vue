@@ -4,7 +4,7 @@
             <navigation-panel/>
 
             <div class="col col-md-9 main-header py-3">
-                <ul class="nav justify-content-end align-items-center border-bottom border-secondary pb-3">
+                <ul class="nav justify-content-end align-items-center pb-3">
                     <li class="nav-item px-3">
                         <router-link class="nav-link" to="/">
                             Marketplace
@@ -15,8 +15,8 @@
                     </li>
                 </ul>
 
-                <div>
-
+                <div class="pt-5">
+                    <tables-component/>
                     <keep-alive>
                         <router-view :key="$route.fullPath"/>
                     </keep-alive>
@@ -27,9 +27,10 @@
 </template>
 
 <script>
+import TablesComponent from '../components/content/TablesComponent.vue'
 import NavigationPanel from '../components/NavigationPanel.vue'
 export default {
-  components: { NavigationPanel },
+  components: { NavigationPanel, TablesComponent },
     name: "Main"
 }
 </script>
