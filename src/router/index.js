@@ -1,8 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home'
-import Register from '../views/Register'
-import Login from '../views/Login'
-import Main from '../views/Main'
 
 
 const routes = [
@@ -13,19 +10,36 @@ const routes = [
     },
     {
         path: '/register',
-        name: 'Register',
-        component: Register
+        name: 'RegisterPage',
+        component: () => import(/* webpackChunkName: "RegisterPage" */ "../views/RegisterPage")
     },
     {
         path: '/login',
-        name: 'Login',
-        component: Login
+        name: 'LoginPage',
+        component: () => import(/* webpackChunkName: "LoginPage" */ "../views/LoginPage")
     },
     {
         path: '/main',
-        name: 'Main',
-        component: Main
-    }
+        name: 'MainPage',
+        component: () => import(/* webpackChunkName: "MainPage" */ "../views/MainPage"),
+        children: [
+            {
+                path: 'expenses-records',
+                name: 'ExpensesPage',
+                component: () => import(/* webpackChunkName: "ExpensesPage" */ "../components/pages/ExpensesPage")
+            },
+            {
+                path: 'sales-records',
+                name: 'SalesPage',
+                component: () => import(/* webpackChunkName: "SalesPage" */ "../components/pages/SalesPage")
+            },
+            {
+                path: 'birds-records',
+                name: 'BirdsPage',
+                component: () => import(/* webpackChunkName: "BirdsPage" */ "../components/pages/BirdsPage")
+            }
+        ]
+    },
 ]
 
 const router = createRouter({

@@ -6,6 +6,8 @@
 @import "variables";
 @import "theme";
 
+@import "@/assets/scss/components/btn.scss";
+
 * {
   font-family: $brand-font-family;
 }

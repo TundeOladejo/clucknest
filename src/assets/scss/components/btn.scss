@@ -1,0 +1,38 @@
+@import "../base";
+
+.btn-brand{
+    &-primary {
+        padding: 1rem;
+        text-transform: uppercase;
+        background-color: $button;
+
+        &:hover {
+            background-color: $white;
+            border: 1px solid $button;
+        }
+    }
+
+    &-secondary {
+        padding: 1rem;
+        text-transform: uppercase;
+        background-color: $headline;
+        color: $white;
+
+        &:hover {
+            background-color: $white;
+            border: 1px solid $headline;
+        }
+    }
+
+    &-tertiary {
+        padding: 3px;
+        background-color: $button;
+        color: $headline;
+        border-radius: 5px;
+
+        &:hover {
+            background-color: $white;
+            border: 1px solid $button;
+        }
+    }
+}

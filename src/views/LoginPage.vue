@@ -28,7 +28,7 @@
                     </div>
                 </form>
 
-                <Button type="submit" btnText="Login" btnClass="btnSubmit" />
+                <custom-button type="submit" btnText="Login" btnClass="btn-brand-secondary" />
 
                 <p class="text-center mt-3">
                     <em>Not yet registered? click </em>
@@ -41,13 +41,13 @@
 
 <script>
 import FormInput from "../components/forms/FormInput";
-import Button from "../components/Button";
+import CustomButton from "../components/CustomButton";
 
 export default {
-    name: "Login",
+    name: "LoginPage",
     components: {
         FormInput,
-        Button,
+        CustomButton,
     },
 };
 </script>

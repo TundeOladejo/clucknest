@@ -14,10 +14,18 @@
 
         <div class="mb-5">
             <ul class="list-group list-group-flush">
-                <li class="list-group-item">Inventory</li>
-                <li class="list-group-item">Birds</li>
-                <li class="list-group-item">Expenses</li>
-                <li class="list-group-item">Receipts</li>
+                <li class="list-group-item">
+                    <router-link to="/main">Inventory</router-link>
+                </li>
+                <li class="list-group-item">
+                    <router-link :to="{ name: 'BirdsPage' }">Birds</router-link>
+                </li>
+                <li class="list-group-item">
+                    <router-link :to="{ name: 'ExpensesPage'}">Expenses</router-link>
+                </li>
+                <li class="list-group-item">
+                    <router-link :to="{ name: 'SalesPage'}">Sales</router-link>
+                </li>
             </ul>
         </div>
 

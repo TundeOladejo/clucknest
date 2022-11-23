@@ -7,9 +7,7 @@
                         A new systematic digital approach into poultry management system.
                     </p>
                     <router-link to="/register">
-                        <button type="button" class="btn btn-outline-primary btn-submit">
-                            Get Started
-                        </button>
+                        <custom-button :type="button" :btnClass="'btn btn-brand-primary'" :btnText="'Get Started'" />
                     </router-link>
                 </div>
                 <div class="col-md-5">
@@ -22,8 +20,10 @@
 </template>
 
 <script>
+import CustomButton from './CustomButton.vue';
 export default {
     name: "HomepageHero",
+    components: { CustomButton }
 };
 </script>
 
@@ -48,18 +48,6 @@ export default {
 
     &-left {
         text-align: center;
-    }
-
-    .btn-submit {
-        background-color: #ff8e3c;
-        border-color: #ff8e3c;
-        color: #0d0d0d;
-        text-decoration: none;
-
-        &:hover {
-            background-color: #fffffe;
-            color: #0d0d0d;
-        }
     }
 }
 </style>

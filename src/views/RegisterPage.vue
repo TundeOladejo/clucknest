@@ -50,7 +50,7 @@
                     </div>
                 </form>
 
-                <Button type="submit" btnText="Register" btnClass="btnSubmit" @click="submit" />
+                <custom-button type="submit" btnText="Register" btnClass="btn-brand-secondary" @click="submit" />
 
                 <p class="text-center mt-3">
                     <em>Already registered? click </em>
@@ -63,13 +63,13 @@
 
 <script>
 import FormInput from "../components/forms/FormInput";
-import Button from "../components/Button";
+import CustomButton from "../components/CustomButton";
 
 export default {
-    name: "Register",
+    name: "RegisterPage",
     components: {
         FormInput,
-        Button,
+        CustomButton,
     },
     data() {
         return {
@@ -97,7 +97,7 @@ export default {
 
         submit: function () {
             this.$router.push({
-                name: "Main",
+                name: "MainPage",
             });
         }
     }
