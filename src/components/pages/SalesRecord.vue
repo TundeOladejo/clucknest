@@ -59,7 +59,7 @@ import TablesComponent from '../content/TablesComponent.vue'
 import BreadCrumb from '../content/BreadCrumb.vue';
 
 export default {
-    name: "SalesPage",
+    name: "SalesRecord",
     components: { TablesComponent, BreadCrumb },
     data: () => ({
         date: null,
@@ -88,11 +88,6 @@ export default {
             this.quantity = null;
             this.value = null;
         },
-    },
-    computed: {
-        sortedList: function () {
-            return this.allExpenses
-        },
-    },
+    }
 }
 </script>

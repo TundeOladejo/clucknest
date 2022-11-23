@@ -48,9 +48,6 @@
         </div>
 
         <tables-component :expenseList="allExpenses" :isExepnse="true" />
-        <!-- <keep-alive>
-            <router-view :key="$route.fullPath" />
-        </keep-alive> -->
     </div>
 </template>
 
@@ -59,7 +56,7 @@ import TablesComponent from '../content/TablesComponent.vue'
 import BreadCrumb from '../content/BreadCrumb.vue';
 
 export default {
-    name: "ExpensesPage",
+    name: "ExpensesRecord",
     components: { TablesComponent, BreadCrumb },
     data: () => ({
         date: null,
@@ -81,11 +78,6 @@ export default {
             this.quantity = null;
             this.dateCreated = null;
         },
-    },
-    computed: {
-        sortedList: function () {
-            return this.allExpenses
-        },
-    },
+    }
 }
 </script>

@@ -6,7 +6,7 @@
             <div class="col col-md-9 main-header py-3">
                 <ul class="nav justify-content-end align-items-center pb-3">
                     <li class="nav-item px-3">
-                        <router-link class="nav-link" :to="{ name: 'SalesPage' }">
+                        <router-link class="nav-link" to="/main">
                             Marketplace
                         </router-link>
                     </li>

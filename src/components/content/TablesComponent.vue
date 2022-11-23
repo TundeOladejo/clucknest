@@ -51,6 +51,32 @@
                     </td>
                 </tr>
             </tbody>
+
+            <thead v-if="isInventory">
+                <tr>
+                    <th scope="col">S/N</th>
+                    <th scope="col">Stocks & Equipment</th>
+                    <th scope="col">Number/Amount</th>
+                    <th scope="col">Unit Value</th>
+                    <th scope="col">Total Value</th>
+                    <th scope="col">Date Updated</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody v-if="isInventory">
+                <tr v-for="(entry, i) in inventoryList" :key="i">
+                    <th scope="row">{{ ++i }} </th>
+                    <td>{{ entry.stkEquip }} </td>
+                    <td>{{ entry.number }} </td>
+                    <td>{{ entry.unitValue }} </td>
+                    <td>{{ entry.totalValue }} </td>
+                    <td>{{ dateTime(entry.dateUpdated) }} </td>
+                    <td>
+                        <custom-button type="dropdown" btnText="edit" btnClass="btn-brand-tertiary"/>
+                    </td>
+                </tr>
+            </tbody>
+
             </table>
         </div>
 </template>
@@ -63,10 +89,12 @@ export default {
     name: "TablesComponent",
     components: { CustomButton },
     props: {
-        isExepnse: { type: Boolean, default: false},
+        isExepnse: { type: Boolean },
         expenseList: { type: Array },
-        isReceipts: { type: Boolean, default: false},
-        receiptList: { type: Array }
+        isReceipts: { type: Boolean },
+        receiptList: { type: Array },
+        isInventory: { type: Boolean },
+        inventoryList: { type: Array }
     },
     methods: {
         dateTime(value) {

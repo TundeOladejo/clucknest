@@ -24,19 +24,24 @@ const routes = [
         component: () => import(/* webpackChunkName: "MainPage" */ "../views/MainPage"),
         children: [
             {
-                path: 'expenses-records',
-                name: 'ExpensesPage',
-                component: () => import(/* webpackChunkName: "ExpensesPage" */ "../components/pages/ExpensesPage")
+                path: 'expenses-record',
+                name: 'ExpensesRecord',
+                component: () => import(/* webpackChunkName: "ExpensesRecord" */ "../components/pages/ExpensesRecord")
             },
             {
-                path: 'sales-records',
-                name: 'SalesPage',
-                component: () => import(/* webpackChunkName: "SalesPage" */ "../components/pages/SalesPage")
+                path: 'sales-record',
+                name: 'SalesRecord',
+                component: () => import(/* webpackChunkName: "SalesRecord" */ "../components/pages/SalesRecord")
             },
             {
-                path: 'birds-records',
-                name: 'BirdsPage',
-                component: () => import(/* webpackChunkName: "BirdsPage" */ "../components/pages/BirdsPage")
+                path: 'birds-record',
+                name: 'BirdsRecord',
+                component: () => import(/* webpackChunkName: "BirdsRecord" */ "../components/pages/BirdsRecord")
+            },
+            {
+                path: 'inventory-record',
+                name: 'InventoryRecord',
+                component: () => import(/* webpackChunkName: "InventoryRecord" */ "../components/pages/InventoryRecord")
             }
         ]
     },

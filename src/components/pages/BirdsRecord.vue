@@ -9,7 +9,7 @@
 import BreadCrumb from '../content/BreadCrumb.vue';
 
 export default {
-    name: "BirdsPage",
+    name: "BirdsRecord",
     components: { BreadCrumb }
 }
 </script>
