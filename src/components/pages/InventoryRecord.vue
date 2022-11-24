@@ -20,7 +20,7 @@
                                         </div>
                                         <div class="col-md-6 form-input__wrapper">
                                             <input type="number" label="Number/Amount" id="number" class="form-control"
-                                                placeholder="Number" v-model="number" />
+                                                placeholder="Quantity" v-model="number" />
                                         </div>
                                     </div>
                                     <div class="row">

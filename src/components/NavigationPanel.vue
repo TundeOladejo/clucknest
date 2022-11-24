@@ -15,16 +15,16 @@
         <div class="mb-5">
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">
-                    <router-link :to="{ name: 'InventoryRecord' }">Inventory</router-link>
+                    <router-link class="stretched-link" :to="{ name: 'InventoryRecord' }">Inventory</router-link>
                 </li>
                 <li class="list-group-item">
-                    <router-link :to="{ name: 'BirdsRecord' }">Birds</router-link>
+                    <router-link class="stretched-link" :to="{ name: 'BirdsRecord' }">Birds</router-link>
                 </li>
                 <li class="list-group-item">
-                    <router-link :to="{ name: 'ExpensesRecord'}">Expenses</router-link>
+                    <router-link class="stretched-link" :to="{ name: 'ExpensesRecord'}">Expenses</router-link>
                 </li>
                 <li class="list-group-item">
-                    <router-link :to="{ name: 'SalesRecord'}">Sales</router-link>
+                    <router-link class="stretched-link" :to="{ name: 'SalesRecord'}">Sales</router-link>
                 </li>
             </ul>
         </div>

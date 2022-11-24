@@ -5,6 +5,14 @@
     background-color: $background;
     color: $headline;
     height: 100vh;
+
+    li {
+        background-color: white;
+
+        &:hover, li > a{
+            background-color: $button;
+        }
+    }
 }
 
 .nav {
