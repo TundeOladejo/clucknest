@@ -24,8 +24,6 @@
                                             <input type="text" label="Material" id="material" class="form-control"
                                                 placeholder="Material" v-model="material" />
                                         </div>
-                                    </div>
-                                    <div class="row">
                                         <div class="col-md-6 form-input__wrapper">
                                             <input type="number" label="Quantity" id="quantity" class="form-control"
                                                 placeholder="Quantity" v-model="quantity" />

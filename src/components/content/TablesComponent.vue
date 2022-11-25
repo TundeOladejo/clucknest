@@ -1,6 +1,6 @@
 <template>
-        <div>
-            <table class="table table-striped">
+    <div>
+        <table class="table table-striped">
             <thead v-if="isExepnse">
                 <tr>
                     <th scope="col">S/N</th>
@@ -21,7 +21,7 @@
                     <td>{{ entry.cost }}</td>
                     <td>{{ dateTime(entry.dateUpdated) }}</td>
                     <td>
-                        <custom-button type="dropdown" btnText="edit" btnClass="btn-brand-tertiary"/>
+                        <custom-button type="dropdown" btnText="edit" btnClass="btn-brand-tertiary" />
                     </td>
                 </tr>
             </tbody>
@@ -47,7 +47,7 @@
                     <td>{{ entry.totalValue }}</td>
                     <td>{{ dateTime(entry.dateUpdated) }}</td>
                     <td>
-                        <custom-button type="dropdown" btnText="edit" btnClass="btn-brand-tertiary"/>
+                        <custom-button type="dropdown" btnText="edit" btnClass="btn-brand-tertiary" />
                     </td>
                 </tr>
             </tbody>
@@ -72,13 +72,12 @@
                     <td>{{ entry.totalValue }} </td>
                     <td>{{ dateTime(entry.dateUpdated) }} </td>
                     <td>
-                        <custom-button type="dropdown" btnText="edit" btnClass="btn-brand-tertiary"/>
+                        <custom-button type="dropdown" btnText="edit" btnClass="btn-brand-tertiary" />
                     </td>
                 </tr>
             </tbody>
-
-            </table>
-        </div>
+        </table>
+    </div>
 </template>
 
 <script>
@@ -94,12 +93,14 @@ export default {
         isReceipts: { type: Boolean },
         receiptList: { type: Array },
         isInventory: { type: Boolean },
-        inventoryList: { type: Array }
+        inventoryList: { type: Array },
+        isFlockBird: { type: Boolean },
+        birdsList: { type: Array }
     },
     methods: {
         dateTime(value) {
             return moment(value).format('YYYY-MM-DD hh:mm');
         },
-  },
+    },
 }
 </script>
