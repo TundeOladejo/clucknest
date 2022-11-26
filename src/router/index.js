@@ -42,6 +42,11 @@ const routes = [
                 path: 'inventory-record',
                 name: 'InventoryRecord',
                 component: () => import(/* webpackChunkName: "InventoryRecord" */ "../components/pages/InventoryRecord")
+            },
+            {
+                path: 'eggs-record',
+                name: 'EggsRecord',
+                component: () => import(/* webpackChunkName: "EggsRecord" */ "../components/pages/EggsRecord")
             }
         ]
     },

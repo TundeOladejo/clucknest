@@ -5,6 +5,7 @@
     background-color: $background;
     color: $headline;
     height: 100vh;
+    overflow: auto;
 
     li {
         background-color: white;

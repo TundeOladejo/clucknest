@@ -76,6 +76,34 @@
                     </td>
                 </tr>
             </tbody>
+
+            <thead v-if="isEggRecord">
+                <tr>
+                    <th scope="col">S/N</th>
+                    <th scope="col">Flock</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Good Eggs</th>
+                    <th scope="col">Bad Eggs</th>
+                    <th scope="col">Total Eggs</th>
+                    <th scope="col">Notes</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody v-if="isEggRecord">
+                <tr v-for="(entry, i) in eggList" :key="i">
+                    <th scope="row">{{ ++i }} </th>
+                    <td>{{ entry.flock }} </td>
+                    <td>{{ entry.date }} </td>
+                    <td>{{ entry.goodEggs }} </td>
+                    <td>{{ entry.badEggs }} </td>
+                    <td>{{ entry.totalEggs }} </td>
+                    <td>{{ entry.notes }} </td>
+                    <td>{{ dateTime(entry.dateUpdated) }} </td>
+                    <td>
+                        <custom-button type="dropdown" btnText="edit" btnClass="btn-brand-tertiary" />
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </template>
@@ -94,8 +122,8 @@ export default {
         receiptList: { type: Array },
         isInventory: { type: Boolean },
         inventoryList: { type: Array },
-        isFlockBird: { type: Boolean },
-        birdsList: { type: Array }
+        isEggRecord: { type: Boolean },
+        eggList: { type: Array }
     },
     methods: {
         dateTime(value) {

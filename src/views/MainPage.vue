@@ -7,7 +7,7 @@
                 <ul class="nav justify-content-end align-items-center pb-3">
                     <li class="nav-item px-3">
                         <router-link class="nav-link" to="/main">
-                            Marketplace
+                            Farm Market
                         </router-link>
                     </li>
                     <li class="nav-item px-3">
