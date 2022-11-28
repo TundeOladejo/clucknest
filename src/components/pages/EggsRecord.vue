@@ -17,8 +17,8 @@ export default {
             modalInputs: [
                 {   isInput: false,
                     id: "flock",
-                    placeholder: "Flock",
-                    selectTitle: "Flock",
+                    label:"Flock Name",
+                    selectTitle: "Pick a flock",
                     selectOptions: [
                         { name: "Flock A" },
                         { name: "Flock B" },
@@ -26,26 +26,13 @@ export default {
                     ],
                     modalWrapperClass: "col-md-6"
                 },
-                { isInput: true, type: "date", id: "date", placeholder: "Date", modalWrapperClass: "col-md-6" },
-                { isInput: true, type: "number", id: "goodEggs", placeholder: "Good Eggs", modalWrapperClass: "col-md-6" },
-                { isInput: true, type: "number", id: "badEggs", placeholder: "Bad Eggs", modalWrapperClass: "col-md-6" },
-                { isInput: true, type: "text", id: "notes", placeholder: "Notes", modalWrapperClass: "col-md-12" }
+                { isInput: true, type: "date", label: "Date Picked", id: "date", placeholder: "Date", modalWrapperClass: "col-md-6" },
+                { isInput: true, type: "number", label: "Number of good eggs", id: "goodEggs", placeholder: "Good Eggs", modalWrapperClass: "col-md-6" },
+                { isInput: true, type: "number", label: "Number of bad eggs", id: "badEggs", placeholder: "Bad Eggs", modalWrapperClass: "col-md-6" },
+                { isInput: true, type: "text", label: "Additional Notes", id: "notes", placeholder: "Notes", modalWrapperClass: "col-md-12" }
             ],
-            eggList: []
+            eggList: [],
         }
     },
-    // methods: {
-    //     saveExpense() {
-    //         this.allExpenses.push({ date: this.date, material: this.material, quantity: this.quantity, cost: this.cost, dateUpdated: Date.now() });
-    //         this.clearForm()
-    //     },
-    //     clearForm() {
-    //         this.date = null;
-    //         this.material = null;
-    //         this.cost = null;
-    //         this.quantity = null;
-    //         this.dateCreated = null;
-    //     },
-    // }
 }
 </script>

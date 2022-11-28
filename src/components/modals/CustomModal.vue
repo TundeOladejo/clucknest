@@ -13,10 +13,11 @@
                             <div class="form-group contact-form">
                                 <div class="row">
                                     <div class="form-input__wrapper" v-for="(input, index) in modalInputs" :key="index" :class="input.modalWrapperClass">
+                                        <label :for="input.id" class="form-label">{{ input.label }}</label>
                                         <input v-if="input.isInput == true" :type="input.type" :id="input.id" class="form-control"
-                                            :placeholder="input.placeholder" v-model="eggModel[index]" />
+                                            :placeholder="input.placeholder" :value="value" />
 
-                                        <select v-else v-model="eggModel[index]" class="form-select form-select-md mb-4"
+                                        <select v-else :value="inputModel[index]" class="form-select form-select-md"
                                             :id="input.id">
                                             <option selected value="NOT SELECTED" disabled>{{ input.selectTitle}}</option>
                                             <option v-for="(opt, index) in input.selectOptions" :key="index"
@@ -50,8 +51,11 @@ export default {
     },
     data() {
         return {
-            eggModel: [],
+            inputModel: [],
         }
+    },
+    mounted() {
+        this.inputModel = Array(this.modalInputs.length).fill(null);
     }
 }
 </script>
