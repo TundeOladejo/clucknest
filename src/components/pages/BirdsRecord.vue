@@ -11,7 +11,7 @@
                         <span class="fw-bold">Flock</span>
                         <span>A</span>
                     </div>
-                    <span><i class="bi bi-pencil"></i></span>
+                    <action-component></action-component>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -31,7 +31,7 @@
                         <span class="fw-bold">Flock</span>
                         <span>B</span>
                     </div>
-                    <span><i class="bi bi-pencil"></i></span>
+                    <action-component></action-component>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -51,7 +51,7 @@
                         <span class="fw-bold">Flock</span>
                         <span>C</span>
                     </div>
-                    <span><i class="bi bi-pencil"></i></span>
+                    <action-component></action-component>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -70,9 +70,10 @@
 <script>
 import BreadCrumb from '../content/BreadCrumb.vue';
 import FlockInputModal from '../modals/FlockInputModal.vue';
+import ActionComponent from '../content/ActionComponent.vue';
 
 export default {
     name: "BirdsRecord",
-    components: { BreadCrumb, FlockInputModal }
+    components: { BreadCrumb, FlockInputModal, ActionComponent }
 }
 </script>
