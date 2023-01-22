@@ -30,7 +30,7 @@
                     <router-link class="stretched-link" :to="{ name: 'BirdsRecord'}">Vet Care</router-link>
                 </li>
                 <li class="list-group-item">
-                    <router-link class="stretched-link" :to="{ name: 'InventoryRecord' }">Inventory</router-link>
+                    <router-link class="stretched-link" :to="{ name: 'FeedingRecord' }">Feeding</router-link>
                 </li>
             </ul>
         </div>

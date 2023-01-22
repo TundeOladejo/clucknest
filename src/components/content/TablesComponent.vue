@@ -60,24 +60,24 @@
                 </tr>
             </tbody>
 
-            <thead v-if="isInventory">
+            <thead v-if="isFeeding">
                 <tr>
                     <th scope="col">S/N</th>
-                    <th scope="col">Stocks & Equipment</th>
-                    <th scope="col">Number/Amount</th>
-                    <th scope="col">Unit Value</th>
-                    <th scope="col">Total Value</th>
+                    <th scope="col">Flock</th>
+                    <th scope="col">Feeding Date</th>
+                    <th scope="col">Feed Type</th>
+                    <th scope="col">Quantity Used</th>
                     <th scope="col">Date Updated</th>
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
-            <tbody v-if="isInventory">
-                <tr v-for="(entry, i) in inventoryList" :key="i">
+            <tbody v-if="isFeeding">
+                <tr v-for="(entry, i) in feedingList" :key="i">
                     <th scope="row">{{ ++i }} </th>
-                    <td>{{ entry.stkEquip }} </td>
-                    <td>{{ entry.number }} </td>
-                    <td>{{ entry.unitValue }} </td>
-                    <td>{{ entry.totalValue }} </td>
+                    <td>{{ entry.flock }} </td>
+                    <td>{{ entry.date }} </td>
+                    <td>{{ entry.feedType }} </td>
+                    <td>{{ entry.quantity }} </td>
                     <td>{{ dateTime(entry.dateUpdated) }} </td>
                     <td><action-component></action-component></td>
                 </tr>
@@ -125,8 +125,8 @@ export default {
         expenseList: { type: Array },
         isSales: { type: Boolean },
         salesList: { type: Array },
-        isInventory: { type: Boolean },
-        inventoryList: { type: Array },
+        isFeeding: { type: Boolean },
+        feedingList: { type: Array },
         isEggRecord: { type: Boolean },
         eggList: { type: Array }
     },

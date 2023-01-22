@@ -14,7 +14,7 @@ import BreadCrumb from '../content/BreadCrumb.vue'
 import CustomModal from '../modals/CustomModal.vue'
 
 export default {
-    name: "ExpensesRecord",
+    name: "SalesRecord",
     components: { TablesComponent, BreadCrumb, CustomModal },
     data: () => ({
         modalInputs: [
