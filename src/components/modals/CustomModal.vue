@@ -14,7 +14,7 @@
                                 <div class="row">
                                     <div class="form-input__wrapper" ref="modalInputs" v-for="(input, index) in modalInputs" :key="index" :class="input.modalWrapperClass">
                                         <label :for="input.id" class="form-label">{{ input.label }}</label>
-                                        <input v-if="input.isInput == true" :type="input.type" :id="input.id" class="form-control"
+                                        <input v-if="input.isInput != false" :type="input.type" :id="input.id" class="form-control"
                                             :placeholder="input.placeholder" v-model="input.value"/>
 
                                         <select v-else v-model="input.value" class="form-select form-select-md"

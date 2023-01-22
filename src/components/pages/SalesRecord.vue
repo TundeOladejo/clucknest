@@ -47,7 +47,7 @@
             </div>
         </div>
 
-        <tables-component :receiptList="allReceipts" :isReceipts="true"/>
+        <tables-component :salesList="allReceipts" :isSales="true"/>
         <!-- <keep-alive>
             <router-view :key="$route.fullPath" />
         </keep-alive> -->

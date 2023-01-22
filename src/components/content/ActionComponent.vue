@@ -1,7 +1,8 @@
 <template>
     <div class="d-flex gap-2">
-        <a href="#" class="text-danger" data-bs-toggle="modal" data-bs-target="#actionDeleteItemModal"><i class="bi bi-trash"></i></a>
+        <a href="#"><i class="bi bi-file-earmark-text"></i></a>
         <a href="#" class="text-info"><i class="bi bi-pencil"></i></a>
+        <a href="#" class="text-danger" data-bs-toggle="modal" data-bs-target="#actionDeleteItemModal"><i class="bi bi-trash"></i></a>
     </div>
 
     <!-- Modal -->

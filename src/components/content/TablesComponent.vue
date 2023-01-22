@@ -4,10 +4,12 @@
             <thead v-if="isExepnse">
                 <tr>
                     <th scope="col">S/N</th>
+                    <th scope="col">Flock</th>
                     <th scope="col">Date</th>
-                    <th scope="col">Material</th>
+                    <th scope="col">Item</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Cost</th>
+                    <th scope="col">Payment Method</th>
                     <th scope="col">Date Updated</th>
                     <th scope="col">Actions</th>
                 </tr>
@@ -15,15 +17,17 @@
             <tbody v-if="isExepnse">
                 <tr v-for="(entry, i) in expenseList" :key="i">
                     <th scope="row">{{ ++i }}</th>
+                    <td>{{ entry.flock }}</td>
                     <td>{{ entry.date }}</td>
-                    <td>{{ entry.material }}</td>
+                    <td>{{ entry.item }}</td>
                     <td>{{ entry.quantity }}</td>
                     <td>{{ entry.cost }}</td>
+                    <td>{{ entry.paymentMethod }}</td>
                     <td>{{ dateTime(entry.dateUpdated) }}</td>
                     <td><action-component></action-component></td>
                 </tr>
             </tbody>
-            <thead v-if="isReceipts">
+            <thead v-if="isSales">
                 <tr>
                     <th scope="col">S/N</th>
                     <th scope="col">Date</th>
@@ -35,8 +39,8 @@
                     <th scope="col">Actions</th>
                 </tr>
             </thead>
-            <tbody v-if="isReceipts">
-                <tr v-for="(entry, i) in receiptList" :key="i">
+            <tbody v-if="isSales">
+                <tr v-for="(entry, i) in salesList" :key="i">
                     <th scope="row">{{ ++i }}</th>
                     <td>{{ entry.date }}</td>
                     <td>{{ entry.product }}</td>
@@ -111,8 +115,8 @@ export default {
     props: {
         isExepnse: { type: Boolean },
         expenseList: { type: Array },
-        isReceipts: { type: Boolean },
-        receiptList: { type: Array },
+        isSales: { type: Boolean },
+        salesList: { type: Array },
         isInventory: { type: Boolean },
         inventoryList: { type: Array },
         isEggRecord: { type: Boolean },

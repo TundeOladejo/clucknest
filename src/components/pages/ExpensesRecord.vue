@@ -2,79 +2,84 @@
     <div class="">
         <bread-crumb title="Expense Record" />
 
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">New Expense</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" method="post">
-                            <div class="mb-2">
-                                <div class="form-group contact-form">
-                                    <div class="row">
-                                        <div class="col-md-6 form-input__wrapper">
-                                            <input type="date" label="Date" id="date" class="form-control"
-                                                placeholder="Date" v-model="date" />
-                                        </div>
-                                        <div class="col-md-6 form-input__wrapper">
-                                            <input type="text" label="Material" id="material" class="form-control"
-                                                placeholder="Material" v-model="material" />
-                                        </div>
-                                        <div class="col-md-6 form-input__wrapper">
-                                            <input type="number" label="Quantity" id="quantity" class="form-control"
-                                                placeholder="Quantity" v-model="quantity" />
-                                        </div>
-                                        <div class="col-md-6 form-input__wrapper">
-                                            <input type="text" label="Cost" id="cost" class="form-control"
-                                                placeholder="Cost" v-model="cost" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" @click="saveExpense">Save</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        <custom-modal modalTitle="New Expense" :modalInputs="modalInputs" :saveModalForm="saveExpenseList"></custom-modal>
         <tables-component :expenseList="allExpenses" :isExepnse="true" />
     </div>
 </template>
 
 <script>
 import TablesComponent from '../content/TablesComponent.vue'
-import BreadCrumb from '../content/BreadCrumb.vue';
+import BreadCrumb from '../content/BreadCrumb.vue'
+import CustomModal from '../modals/CustomModal.vue'
 
 export default {
     name: "ExpensesRecord",
-    components: { TablesComponent, BreadCrumb },
+    components: { TablesComponent, BreadCrumb, CustomModal },
     data: () => ({
-        date: null,
-        material: null,
-        quantity: null,
-        cost: null,
-        dateUpdated: null,
+        modalInputs: [
+            {   
+                isInput: false,
+                id: "flock",
+                label:"Flock Name",
+                selectTitle: "Pick a flock",
+                selectOptions: [
+                    { name: "Flock A" },
+                    { name: "Flock B" },
+                    { name: "Flock C" }
+                ],
+                modalWrapperClass: "col-md-6"
+            },
+            { type: "date", label: "Date", id: "date", placeholder: "Date", modalWrapperClass: "col-md-6" },
+            { type: "text", label: "Item", id: "item", placeholder: "Item", modalWrapperClass: "col-md-12" },
+            { type: "text", label: "Quantity", id: "quantity", placeholder: "Quantity", modalWrapperClass: "col-md-6" },
+            { type: "number", label: "Cost", id: "cost", placeholder: "Cost", modalWrapperClass: "col-md-6" },
+            {   
+                isInput: false,
+                id: "paymentMethod",
+                label:"Payment Method",
+                selectTitle: "Select Payment Type",
+                selectOptions: [
+                    { name: "Cash" },
+                    { name: "Electronic Transfer" },
+                    { name: "Cheque" },
+                    { name: "Deposit" }
+                ],
+                modalWrapperClass: "col-md-6"
+            },
+            {   
+                isInput: false,
+                id: "paymentStatus",
+                label:"Payment Status",
+                selectTitle: "Select Status",
+                selectOptions: [
+                    { name: "Cleared" },
+                    { name: "Uncleared" },
+                    { name: "Reconciled" }
+                ],
+                modalWrapperClass: "col-md-6"
+            },
+            { type: "text", label: "Purchased From", id: "purchasedFrom", placeholder: "Purchased From", modalWrapperClass: "col-md-12" },
+        ],
         allExpenses: [],
     }),
     methods: {
-        saveExpense() {
-            this.allExpenses.push({ date: this.date, material: this.material, quantity: this.quantity, cost: this.cost, dateUpdated: Date.now() });
+        saveExpenseList() {
+            let inputValues = this.modalInputs.map((i) => i.value)
+
+            this.allExpenses.push({ 
+                flock: inputValues[0],
+                date: inputValues[1], 
+                item: inputValues[2], 
+                quantity: inputValues[3], 
+                cost: inputValues[4],
+                paymentMethod: inputValues[5],
+                paymentStatus: inputValues[6],
+                paymentFrom: inputValues[7]
+            })
             this.clearForm()
         },
         clearForm() {
-            this.date = null;
-            this.material = null;
-            this.cost = null;
-            this.quantity = null;
-            this.dateCreated = null;
+            this.modalInputs.map((i) => i.value = null)
         },
     }
 }
