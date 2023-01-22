@@ -9,7 +9,8 @@
                     <th scope="col">Item</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Cost</th>
-                    <th scope="col">Payment Method</th>
+                    <th scope="col">Method</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Date Updated</th>
                     <th scope="col">Actions</th>
                 </tr>
@@ -23,6 +24,7 @@
                     <td>{{ entry.quantity }}</td>
                     <td>{{ entry.cost }}</td>
                     <td>{{ entry.paymentMethod }}</td>
+                    <td>{{ entry.paymentStatus}}</td>
                     <td>{{ dateTime(entry.dateUpdated) }}</td>
                     <td><action-component></action-component></td>
                 </tr>
@@ -30,11 +32,14 @@
             <thead v-if="isSales">
                 <tr>
                     <th scope="col">S/N</th>
+                    <th scope="col">Flock</th>
                     <th scope="col">Date</th>
                     <th scope="col">Product</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Unit Value</th>
                     <th scope="col">Total</th>
+                    <th scope="col">Method</th>
+                    <th scope="col">Status</th>
                     <th scope="col">Date Updated</th>
                     <th scope="col">Actions</th>
                 </tr>
@@ -42,11 +47,14 @@
             <tbody v-if="isSales">
                 <tr v-for="(entry, i) in salesList" :key="i">
                     <th scope="row">{{ ++i }}</th>
+                    <td>{{ entry.flock }}</td>
                     <td>{{ entry.date }}</td>
                     <td>{{ entry.product }}</td>
                     <td>{{ entry.quantity }}</td>
                     <td>{{ entry.value }}</td>
                     <td>{{ entry.totalValue }}</td>
+                    <td>{{ entry.paymentMethod }}</td>
+                    <td>{{ entry.paymentStatus}}</td>
                     <td>{{ dateTime(entry.dateUpdated) }}</td>
                     <td> <action-component></action-component></td>
                 </tr>

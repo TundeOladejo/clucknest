@@ -2,92 +2,78 @@
     <div class="">
         <bread-crumb title="Sales Record" />
 
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Output Record</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="" method="post">
-                            <div class="mb-2">
-                                <div class="form-group contact-form">
-                                    <div class="row">
-                                        <div class="col-md-6 form-input__wrapper">
-                                            <input type="date" id="date" class="form-control"
-                                                placeholder="Date" v-model="date" />
-                                        </div>
-                                        <div class="col-md-6 form-input__wrapper">
-                                            <input type="text" id="product" class="form-control"
-                                                placeholder="Product" v-model="product" />
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 form-input__wrapper">
-                                            <input type="text" id="quantity" class="form-control"
-                                                placeholder="Quantity" v-model="quantity" />
-                                        </div>
-                                        <div class="col-md-6 form-input__wrapper">
-                                            <input type="text" id="value" class="form-control"
-                                                placeholder="Unit Value" v-model="value" />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" @click="saveExpense">Save</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <custom-modal modalTitle="New Sales" :modalInputs="modalInputs" :saveModalForm="saveSalesList"></custom-modal>
 
         <tables-component :salesList="allReceipts" :isSales="true"/>
-        <!-- <keep-alive>
-            <router-view :key="$route.fullPath" />
-        </keep-alive> -->
     </div>
 </template>
 
 <script>
 import TablesComponent from '../content/TablesComponent.vue'
-import BreadCrumb from '../content/BreadCrumb.vue';
+import BreadCrumb from '../content/BreadCrumb.vue'
+import CustomModal from '../modals/CustomModal.vue'
 
 export default {
-    name: "SalesRecord",
-    components: { TablesComponent, BreadCrumb },
+    name: "ExpensesRecord",
+    components: { TablesComponent, BreadCrumb, CustomModal },
     data: () => ({
-        date: null,
-        product: null,
-        quantity: null,
-        value: null,
-        totalValue: null,
-        dateUpdated: null,
+        modalInputs: [
+            {   
+                isInput: false, id: "flock", label:"Flock Name", selectTitle: "Pick a flock",
+                selectOptions: [
+                    { name: "Flock A" },
+                    { name: "Flock B" },
+                    { name: "Flock C" }
+                ],
+                modalWrapperClass: "col-md-6"
+            },
+            { type: "date", label: "Date", id: "date", placeholder: "Date", modalWrapperClass: "col-md-6" },
+            { type: "text", label: "Item", id: "product", placeholder: "Product", modalWrapperClass: "col-md-12" },
+            { type: "number", label: "Quantity", id: "quantity", placeholder: "Quantity", modalWrapperClass: "col-md-6" },
+            { type: "number", label: "Unit Value", id: "value", placeholder: "Unit Value", modalWrapperClass: "col-md-6" },
+            {   
+                isInput: false, id: "paymentMethod", label:"Payment Method", selectTitle: "Select Payment Type",
+                selectOptions: [
+                    { name: "Cash" },
+                    { name: "Electronic Transfer" },
+                    { name: "Cheque" },
+                    { name: "Deposit" }
+                ],
+                modalWrapperClass: "col-md-6"
+            },
+            {   
+                isInput: false, id: "paymentStatus", label:"Payment Status", selectTitle: "Select Status",
+                selectOptions: [
+                    { name: "Cleared" },
+                    { name: "Uncleared" },
+                    { name: "Reconciled" }
+                ],
+                modalWrapperClass: "col-md-6"
+            },
+            { type: "text", label: "Sold To", id: "soldTo", placeholder: "Sold To", modalWrapperClass: "col-md-12" },
+        ],
         allReceipts: [],
     }),
     methods: {
-        saveExpense() {
+        saveSalesList() {
+            let inputValues = this.modalInputs.map((i) => i.value)
+
             this.allReceipts.push({ 
-                date: this.date, 
-                product: this.product, 
-                quantity: this.quantity, 
-                value: this.value, 
-                totalValue: this.quantity * this.value,
-                dateUpdated: Date.now() 
-            });
+                flock: inputValues[0],
+                date: inputValues[1], 
+                product: inputValues[2], 
+                quantity: inputValues[3], 
+                value: inputValues[4],
+                totalValue: parseInt(inputValues[3]) * parseInt(inputValues[4]),
+                paymentMethod: inputValues[5],
+                paymentStatus: inputValues[6],
+                soldTo: inputValues[7]
+            })
             this.clearForm()
         },
         clearForm() {
-            this.date = null;
-            this.product = null;
-            this.quantity = null;
-            this.value = null;
-        },
+            this.modalInputs.map((i) => i.value = null)
+        }
     }
 }
 </script>
