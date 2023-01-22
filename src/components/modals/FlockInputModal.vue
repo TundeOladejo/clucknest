@@ -21,15 +21,7 @@
                                             v-model="date" />
                                     </div>
                                     <div class="col-md-6 form-input__wrapper">
-                                        <input type="text" label="Material" id="material" class="form-control"
-                                            placeholder="Material" v-model="material" />
-                                    </div>
-                                    <div class="col-md-6 form-input__wrapper">
-                                        <input type="number" label="Quantity" id="quantity" class="form-control"
-                                            placeholder="Quantity" v-model="quantity" />
-                                    </div>
-                                    <div class="col-md-6 form-input__wrapper">
-                                        <select v-model="bird" class="form-select form-select-md mb-4"
+                                        <select v-model="bird" class="form-select form-select-md"
                                             aria-label="Default select example">
                                             <option value="00" selected disabled>Select Bird Type</option>
                                             <option v-for="(birdType, index) in birdTypes" :key="index"
@@ -39,7 +31,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6 form-input__wrapper">
-                                        <select v-model="breed" class="form-select form-select-md mb-4"
+                                        <select v-model="breed" class="form-select form-select-md"
                                             aria-label="Default select example">
                                             <option value="00" selected disabled>Select Breed</option>
                                             <option v-for="(flockBreed, index) in flockBreeds" :key="index"
@@ -64,15 +56,25 @@
                                 </div>
 
                                 <div class="row">
-                                    <div class="col-md-3 form-input__wrapper">
+                                    <div class="col-md-6 form-input__wrapper">
+                                        <select v-model="acquisition" class="form-select form-select-md"
+                                            aria-label="Default select example">
+                                            <option value="00" selected disabled>Detail Type</option>
+                                            <option v-for="(detailType, index) in detailTypes" :key="index"
+                                                v-bind:value="index">
+                                                {{ detailType.name }}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 form-input__wrapper">
                                         <input type="number" id="chicks" class="form-control" placeholder="Chicks"
                                             v-model="chicks" />
                                     </div>
-                                    <div class="col-md-3 form-input__wrapper">
+                                    <div class="col-md-6 form-input__wrapper">
                                         <input type="number" id="hens" class="form-control" placeholder="Hens"
                                             v-model="hens" />
                                     </div>
-                                    <div class="col-md-3 form-input__wrapper">
+                                    <div class="col-md-6 form-input__wrapper">
                                         <input type="number" id="description" class="form-control" placeholder="Cocks"
                                             v-model="cocks" />
                                     </div>
@@ -104,6 +106,7 @@ export default {
         return {
             bird: "00",
             breed: "00",
+            acquisition: "00",
             birdTypes: [
                 { name: "Layers" },
                 { name: "Broilers" },
@@ -119,6 +122,12 @@ export default {
             ],
             flockBirds: [
                 { chicks: 0, hens: 0, cocks: 0 }
+            ],
+            detailTypes: [
+                { name: "Bought" },
+                { name: "Hatched" },
+                { name: "Gift In" },
+                { name: "Donation In" }
             ]
         }
     }

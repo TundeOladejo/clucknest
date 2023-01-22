@@ -12,16 +12,15 @@
                         <div class="mb-2">
                             <div class="form-group contact-form">
                                 <div class="row">
-                                    <div class="form-input__wrapper" v-for="(input, index) in modalInputs" :key="index" :class="input.modalWrapperClass">
+                                    <div class="form-input__wrapper" ref="modalInputs" v-for="(input, index) in modalInputs" :key="index" :class="input.modalWrapperClass">
                                         <label :for="input.id" class="form-label">{{ input.label }}</label>
                                         <input v-if="input.isInput == true" :type="input.type" :id="input.id" class="form-control"
-                                            :placeholder="input.placeholder" :value="value" />
+                                            :placeholder="input.placeholder" v-model="input.value"/>
 
-                                        <select v-else :value="inputModel[index]" class="form-select form-select-md"
+                                        <select v-else v-model="input.value" class="form-select form-select-md"
                                             :id="input.id">
-                                            <option selected value="NOT SELECTED" disabled>{{ input.selectTitle}}</option>
-                                            <option v-for="(opt, index) in input.selectOptions" :key="index"
-                                                v-bind:value="index">
+                                            <option :value="input.selectTitle" selected disabled>{{ input.selectTitle }}</option>
+                                            <option v-for="(opt, index) in input.selectOptions" :key="index" :value="opt.name">
                                                 {{ opt.name }}
                                             </option>
                                         </select>
@@ -32,7 +31,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" @click="saveModalForm">Save</button>
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal" @click.prevent="saveModalForm">Save</button>
                         </div>
                     </form>
                 </div>
@@ -49,13 +48,5 @@ export default {
         modalInputs: { type: Array },
         saveModalForm: { type: Function }
     },
-    data() {
-        return {
-            inputModel: [],
-        }
-    },
-    mounted() {
-        this.inputModel = Array(this.modalInputs.length).fill(null);
-    }
 }
 </script>

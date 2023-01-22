@@ -1,7 +1,7 @@
 <template>
     <bread-crumb title="Eggs Record"></bread-crumb>
 
-    <custom-modal modalTitle="Egg Record" :modalInputs="modalInputs"></custom-modal>
+    <custom-modal modalTitle="Egg Record" :modalInputs="modalInputs" :saveModalForm="saveEggList"></custom-modal>
     <tables-component :isEggRecord="true" :eggList="eggList"></tables-component>
 </template>
 
@@ -24,7 +24,7 @@ export default {
                         { name: "Flock B" },
                         { name: "Flock C" }
                     ],
-                    modalWrapperClass: "col-md-6"
+                    modalWrapperClass: "col-md-6",
                 },
                 { isInput: true, type: "date", label: "Date Picked", id: "date", placeholder: "Date", modalWrapperClass: "col-md-6" },
                 { isInput: true, type: "number", label: "Number of good eggs", id: "goodEggs", placeholder: "Good Eggs", modalWrapperClass: "col-md-6" },
@@ -33,6 +33,24 @@ export default {
             ],
             eggList: [],
         }
+    },
+    methods: {
+        saveEggList() {
+            let inputValues = this.modalInputs.map((i) => i.value)
+
+            this.eggList.push({ 
+                flock: inputValues[0],
+                date: inputValues[1], 
+                goodEggs: inputValues[2], 
+                badEggs: inputValues[3], 
+                totalEggs: parseInt(inputValues[2]) + parseInt(inputValues[3]),
+                notes: inputValues[4]
+            })
+            this.clearForm()
+        },
+        clearForm() {
+            this.modalInputs.map((i) => i.value = null)
+        },
     },
 }
 </script>
