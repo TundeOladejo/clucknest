@@ -47,6 +47,11 @@ const routes = [
                 path: 'eggs-record',
                 name: 'EggsRecord',
                 component: () => import(/* webpackChunkName: "EggsRecord" */ "../components/pages/EggsRecord")
+            },
+            {
+                path: 'clients-details',
+                name: 'ClientsAndVendors',
+                component: () => import(/* webpackChunkName: "ClientsAndVendors" */ "../components/pages/ClientsAndVendors")
             }
         ]
     },

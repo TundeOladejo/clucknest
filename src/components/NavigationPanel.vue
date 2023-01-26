@@ -44,7 +44,9 @@
         <div>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">Staffs</li>
-                <li class="list-group-item">Customers/Vendors</li>
+                <li class="list-group-item">
+                    <router-link class="stretched-link" :to="{ name: 'ClientsAndVendors' }">Customers/Vendors</router-link>
+                </li>
                 <li class="list-group-item">Roles</li>
                 <li class="list-group-item">Settings</li>
             </ul>
