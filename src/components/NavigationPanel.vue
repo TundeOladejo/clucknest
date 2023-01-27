@@ -18,7 +18,7 @@
                     <router-link class="stretched-link" :to="{ name: 'BirdsRecord' }">Birds</router-link>
                 </li>
                 <li class="list-group-item">
-                    <router-link class="stretched-link" :to="{ name: 'EggsRecord' }">Egg Colection</router-link>
+                    <router-link class="stretched-link" :to="{ name: 'EggsRecord' }">Egg Collection</router-link>
                 </li>
                 <li class="list-group-item">
                     <router-link class="stretched-link" :to="{ name: 'ExpensesRecord'}">Expenses</router-link>

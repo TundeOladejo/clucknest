@@ -2,7 +2,8 @@
     <bread-crumb title="Eggs Record"></bread-crumb>
 
     <custom-modal modalTitle="Egg Record" :modalInputs="modalInputs" :saveModalForm="saveEggList"></custom-modal>
-    <tables-component :isEggRecord="true" :eggList="eggList"></tables-component>
+    
+    <tables-component :isEggRecord="true" :eggList="eggList" :isListEmpty="isListEmpty"></tables-component>
 </template>
 
 <script>
@@ -32,6 +33,7 @@ export default {
                 { isInput: true, type: "text", label: "Additional Notes", id: "notes", placeholder: "Notes", modalWrapperClass: "col-md-12" }
             ],
             eggList: [],
+            isListEmpty: true
         }
     },
     methods: {
@@ -47,6 +49,7 @@ export default {
                 notes: inputValues[4]
             })
             this.clearForm()
+            this.isListEmpty = false
         },
         clearForm() {
             this.modalInputs.map((i) => i.value = null)

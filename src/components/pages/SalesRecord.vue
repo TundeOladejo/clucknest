@@ -4,7 +4,7 @@
 
         <custom-modal modalTitle="New Sales" :modalInputs="modalInputs" :saveModalForm="saveSalesList"></custom-modal>
 
-        <tables-component :salesList="allReceipts" :isSales="true"/>
+        <tables-component :salesList="allReceipts" :isSales="true" :isListEmpty="isListEmpty"/>
     </div>
 </template>
 
@@ -53,6 +53,7 @@ export default {
             { type: "text", label: "Sold To", id: "soldTo", placeholder: "Sold To", modalWrapperClass: "col-md-12" },
         ],
         allReceipts: [],
+        isListEmpty: true
     }),
     methods: {
         saveSalesList() {
@@ -70,6 +71,7 @@ export default {
                 soldTo: inputValues[7]
             })
             this.clearForm()
+            this.isListEmpty = false
         },
         clearForm() {
             this.modalInputs.map((i) => i.value = null)

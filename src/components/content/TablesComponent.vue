@@ -1,5 +1,9 @@
 <template>
-    <div class="table-responsive">
+    <div v-if="isListEmpty == true" class="d-flex justify-content-center fs-1 gap-2">
+        <i class="bi bi-exclamation-circle"></i>
+        <span>No Data Record</span>
+    </div>
+    <div v-else class="table-responsive">
         <table class="table table-striped">
             <thead v-if="isExepnse">
                 <tr>
@@ -121,14 +125,15 @@ export default {
     name: "TablesComponent",
     components: { ActionComponent },
     props: {
-        isExepnse: { type: Boolean },
-        expenseList: { type: Array },
-        isSales: { type: Boolean },
-        salesList: { type: Array },
-        isFeeding: { type: Boolean },
-        feedingList: { type: Array },
-        isEggRecord: { type: Boolean },
-        eggList: { type: Array }
+        isListEmpty: Boolean,
+        isExepnse: Boolean,
+        expenseList: Array,
+        isSales: Boolean,
+        salesList: Array,
+        isFeeding: Boolean,
+        feedingList: Array,
+        isEggRecord: Boolean,
+        eggList: Array
     },
     methods: {
         dateTime(value) {

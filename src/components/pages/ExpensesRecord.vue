@@ -3,7 +3,7 @@
         <bread-crumb title="Expense Record" />
 
         <custom-modal modalTitle="New Expense" :modalInputs="modalInputs" :saveModalForm="saveExpenseList"></custom-modal>
-        <tables-component :expenseList="allExpenses" :isExepnse="true" />
+        <tables-component :expenseList="allExpenses" :isExepnse="true" :isListEmpty="isListEmpty" />
     </div>
 </template>
 
@@ -61,6 +61,7 @@ export default {
             { type: "text", label: "Purchased From", id: "purchasedFrom", placeholder: "Purchased From", modalWrapperClass: "col-md-12" },
         ],
         allExpenses: [],
+        isListEmpty: true
     }),
     methods: {
         saveExpenseList() {
@@ -77,6 +78,7 @@ export default {
                 paymentFrom: inputValues[7]
             })
             this.clearForm()
+            this.isListEmpty = false
         },
         clearForm() {
             this.modalInputs.map((i) => i.value = null)

@@ -18,7 +18,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">Delete</button>
                 </div>
             </div>
         </div>

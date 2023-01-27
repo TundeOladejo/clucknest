@@ -5,7 +5,7 @@
 
     <div class="row">
         <div class="col">
-            <tables-component :feedingList="allFeeds" :isFeeding="true" />
+            <tables-component :feedingList="allFeeds" :isFeeding="true" :isListEmpty="isListEmpty" />
         </div>
     </div>
 </template>
@@ -45,6 +45,7 @@ export default {
             { type: "text", label: "Additional Notes", id: "addnotes", placeholder: "Additional Notes", modalWrapperClass: "col-md-12" },
         ],
         allFeeds: [],
+        isListEmpty: true
     }),
     methods: {
         saveFeedingList() {
@@ -58,6 +59,7 @@ export default {
                 addNotes: inputValues[4]
             })
             this.clearForm()
+            this.isListEmpty = false
         },
         clearForm() {
             this.modalInputs.map((i) => i.value = null)
