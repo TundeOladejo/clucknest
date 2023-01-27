@@ -3,14 +3,18 @@
 
     <custom-modal modalTitle="New Contact" :modalInputs="modalInputs" :saveModalForm="saveContactList"></custom-modal>
 
-    <div class="row mt-3">
+    <div v-if="isListEmpty == true" class="d-flex justify-content-center fs-1 gap-2">
+        <i class="bi bi-exclamation-circle"></i>
+        <span>No Data Record</span>
+    </div>
+    <div v-else class="row mt-3">
         <div v-for="(card, index) in cards" :key="index" class="col-md-4 mb-3">
             <div class="card p-1 shadow">
                 <div class="card-header bg-white d-flex justify-content-between">
-                    <div class="d-flex gap-2 flex-wrap">
+                    <div class="d-flex">
                         <span class="fw-bold text-truncate" style="max-width: 180px;">{{ card.fullName }}</span>
-                        <action-component></action-component>
                     </div>
+                    <action-component></action-component>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -66,7 +70,8 @@ export default {
                 modalWrapperClass: "col-md-6"
             },
         ],
-        cards: []
+        cards: [],
+        isListEmpty: true
     }),
     methods: {
         saveContactList() {
@@ -80,10 +85,11 @@ export default {
                 role: inputValues[4]
             })
             this.clearForm()
+            this.isListEmpty = false
         },
         clearForm() {
             this.modalInputs.map((i) => i.value = null);
-            this.modalInputs.map((i) => i.selected = null)
+            this.modalInputs.map((i) => i.selected = [])
         }
     }
 }

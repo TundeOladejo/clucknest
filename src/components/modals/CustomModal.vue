@@ -61,8 +61,7 @@ export default {
     props: {
         modalTitle: { type: String },
         modalInputs: { type: Array },
-        saveModalForm: { type: Function },
-        // checkedNames: Array
+        saveModalForm: { type: Function }
     },
 }
 </script>
