@@ -10,7 +10,7 @@ import HomeHeader from "@/components/layouts/HomeHeader";
 import HomepageHero from "../components/HomepageHero";
 
 export default {
-    name: "Home",
+    name: "HomePage",
     components: {
         HomeHeader,
         HomepageHero,
