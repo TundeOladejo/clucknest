@@ -111,6 +111,26 @@
                     <td><action-component></action-component></td>
                 </tr>
             </tbody>
+            <thead v-if="isVetRecord">
+                <tr>
+                    <th scope="col">S/N</th>
+                    <th scope="col">Flock</th>
+                    <th scope="col">Date Administered</th>
+                    <th scope="col">Medicine Name</th>
+                    <th scope="col">Date Updated</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody v-if="isVetRecord">
+                <tr v-for="(entry, i) in vetList" :key="i">
+                    <th scope="row">{{ ++i }} </th>
+                    <td>{{ entry.flock }} </td>
+                    <td>{{ entry.date }} </td>
+                    <td>{{ entry.medName }} </td>
+                    <td>{{ dateTime(entry.dateUpdated) }} </td>
+                    <td><action-component></action-component></td>
+                </tr>
+            </tbody>
         </table>
     </div>
 </template>
@@ -131,7 +151,9 @@ export default {
         isFeeding: Boolean,
         feedingList: Array,
         isEggRecord: Boolean,
-        eggList: Array
+        eggList: Array,
+        isVetRecord: Boolean,
+        vetList: Array
     },
     methods: {
         dateTime(value) {
