@@ -1,7 +1,7 @@
 <template>
     <div v-if="isListEmpty == true" class="d-flex justify-content-center fs-1 gap-2">
         <i class="bi bi-exclamation-circle"></i>
-        <span>No Data Record</span>
+        <span>No Record Yet</span>
     </div>
     <div v-else class="table-responsive">
         <table class="table table-striped">
@@ -95,7 +95,6 @@
                     <th scope="col">Good Eggs</th>
                     <th scope="col">Bad Eggs</th>
                     <th scope="col">Total Eggs</th>
-                    <th scope="col">Notes</th>
                     <th scope="col">Date Updated</th>
                     <th scope="col">Actions</th>
                 </tr>
@@ -108,7 +107,6 @@
                     <td>{{ entry.goodEggs }} </td>
                     <td>{{ entry.badEggs }} </td>
                     <td>{{ entry.totalEggs }} </td>
-                    <td>{{ entry.notes }} </td>
                     <td>{{ dateTime(entry.dateUpdated) }} </td>
                     <td><action-component></action-component></td>
                 </tr>

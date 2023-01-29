@@ -7,7 +7,7 @@
                 <ul class="nav justify-content-end align-items-center pb-3">
                     <li class="nav-item px-3">
                         <router-link class="nav-link" to="/main">
-                            Farm Market
+                            Market Insights
                         </router-link>
                     </li>
                     <li class="nav-item px-3">
@@ -16,7 +16,6 @@
                 </ul>
 
                 <div>
-                    <!-- <expenses-page></expenses-page> -->
                     <router-view v-slot="{ Component }" :key="$route.fullPath">
                         <keep-alive>
                             <component :is="Component" />
@@ -31,9 +30,7 @@
 
 <script>
 import NavigationPanel from '../components/NavigationPanel.vue'
-// import ExpensesPage from '../components/pages/ExpensesPage.vue'
 export default {
-    // components: { NavigationPanel, ExpensesPage },
      components: { NavigationPanel },
     name: "MainPage"
 }

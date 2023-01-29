@@ -20,6 +20,11 @@
                                             class="form-control" :placeholder="input.placeholder"
                                             v-model="input.value" />
 
+                                            <div v-else-if="input.isNumber == true">
+                                                <input type="number" :id="input.id"
+                                                class="form-control" :placeholder="input.placeholder" min="0"
+                                                v-model="input.value" />
+                                            </div>
                                         <div v-else-if="input.isCheckBox == true" class="form-check" :id="input.id">
                                             <div class="d-flex align-items-end gap-2" v-for="(checkbox, index) in input.checkBoxes" :key="index">
                                                 <input class="form-check-input" type="checkbox" :value="checkbox.id"

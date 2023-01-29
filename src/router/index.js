@@ -49,6 +49,11 @@ const routes = [
                 component: () => import(/* webpackChunkName: "EggsRecord" */ "../components/pages/EggsRecord")
             },
             {
+                path: 'vet-record',
+                name: 'VetRecord',
+                component: () => import(/* webpackChunkName: "VetRecord" */ "../components/pages/VetRecord")
+            },
+            {
                 path: 'clients-details',
                 name: 'ClientsAndVendors',
                 component: () => import(/* webpackChunkName: "ClientsAndVendors" */ "../components/pages/ClientsAndVendors")

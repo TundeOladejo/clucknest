@@ -32,7 +32,7 @@
 
                 <p class="text-center mt-3">
                     <em>Not yet registered? click </em>
-                    <router-link to="/register"> here </router-link>
+                    <router-link class="text-info" to="/register"> here </router-link>
                 </p>
             </div>
         </div>

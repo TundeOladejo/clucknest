@@ -54,7 +54,7 @@
 
                 <p class="text-center mt-3">
                     <em>Already registered? click </em>
-                    <router-link to="/login"> here </router-link>
+                    <router-link class="text-info" to="/login"> here </router-link>
                 </p>
             </div>
         </div>

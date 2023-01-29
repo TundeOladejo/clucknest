@@ -1,11 +1,11 @@
 <template>
-    <bread-crumb title="Customers And Vendors" />
+    <bread-crumb title="Contacts" />
 
     <custom-modal modalTitle="New Contact" :modalInputs="modalInputs" :saveModalForm="saveContactList"></custom-modal>
 
     <div v-if="isListEmpty == true" class="d-flex justify-content-center fs-1 gap-2">
         <i class="bi bi-exclamation-circle"></i>
-        <span>No Data Record</span>
+        <span>No Record Yet</span>
     </div>
     <div v-else class="row mt-3">
         <div v-for="(card, index) in cards" :key="index" class="col-md-4 mb-3">
@@ -32,7 +32,7 @@
                                 <span>{{ card.email }}</span>
                             </div>
                             <div class="d-flex gap-1 flex-wrap">
-                                <span class="fw-bold">Status:</span>
+                                <span class="fw-bold">Category:</span>
                                 <span class="d-flex gap-2">
                                     <span v-for="(rol, index) in card.role" :key="index"
                                         class="badge text-bg-primary">{{ rol }}</span>
