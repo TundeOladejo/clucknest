@@ -128,7 +128,7 @@
                     <td>{{ entry.date }} </td>
                     <td>{{ entry.medName }} </td>
                     <td>{{ dateTime(entry.dateUpdated) }} </td>
-                    <td><action-component></action-component></td>
+                    <td><action-component viewDetailsTitle="Vet Record" :viewDetails="viewDetails" :deleteItem="deleteItem"></action-component></td>
                 </tr>
             </tbody>
         </table>
@@ -153,7 +153,9 @@ export default {
         isEggRecord: Boolean,
         eggList: Array,
         isVetRecord: Boolean,
-        vetList: Array
+        vetList: Array,
+        viewDetails: Array,
+        deleteItem: Function
     },
     methods: {
         dateTime(value) {

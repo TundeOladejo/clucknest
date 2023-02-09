@@ -1,11 +1,11 @@
 <template>
     <div class="d-flex gap-2">
-        <a href="#"><i class="bi bi-file-earmark-text"></i></a>
+        <a href="#" data-bs-toggle="modal" data-bs-target="#actionViewItemModal"><i class="bi bi-file-earmark-text"></i></a>
         <a href="#" class="text-info"><i class="bi bi-pencil"></i></a>
         <a href="#" class="text-danger" data-bs-toggle="modal" data-bs-target="#actionDeleteItemModal"><i class="bi bi-trash"></i></a>
     </div>
 
-    <!-- Modal -->
+    <!-- Delete Modal -->
     <div class="modal fade" id="actionDeleteItemModal" tabindex="-1" aria-labelledby="actionDeleteItemModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
@@ -15,6 +15,30 @@
                 </div>
                 <div class="modal-body">
                     Are you sure you want to delete this item?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal" @click.prevent="deleteItem">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- View Modal -->
+    <div class="modal fade" id="actionViewItemModal" tabindex="-1" aria-labelledby="actionViewItemModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="actionViewItemModal">{{ viewDetailsTitle }}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div v-for="(detail, index) in viewDetails" :key="index" class="d-flex gap-2">
+                            <p>{{ detail.title }}</p>
+                            <p>{{ detail.value }}</p>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Close</button>
@@ -28,6 +52,11 @@
 
 <script>
 export default {
-    name: "ActionComponent"
+    name: "ActionComponent",
+    props: {
+        viewDetailsTitle: String,
+        viewDetails: Array,
+        deleteItem: Function
+    }
 }
 </script>

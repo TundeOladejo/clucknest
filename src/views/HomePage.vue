@@ -5,7 +5,7 @@
     </div>
 </template>
 
-<script>
+<script lang="js">
 import HomeHeader from "@/components/layouts/HomeHeader";
 import HomepageHero from "../components/HomepageHero";
 

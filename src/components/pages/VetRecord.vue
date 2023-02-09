@@ -3,7 +3,7 @@
 
     <custom-modal modalTitle="New Vet Record" :modalInputs="modalInputs" :saveModalForm="saveVetList"></custom-modal>
     
-    <tables-component :isVetRecord="true" :vetList="vetList" :isListEmpty="isListEmpty"></tables-component>
+    <tables-component :isVetRecord="true" :vetList="vetList" :isListEmpty="isListEmpty" :deleteItem="deleteItem()"></tables-component>
 </template>
 
 <script>
@@ -31,7 +31,8 @@ export default {
             { type: "number", label: "Quantity", id: "quantity", placeholder: "Quantity per bird", modalWrapperClass: "col-md-6" }
         ],
         vetList: [],
-        isListEmpty: true
+        isListEmpty: true,
+        getId: null
     }),
     methods: {
         saveVetList() {
@@ -48,7 +49,13 @@ export default {
         },
         clearForm() {
             this.modalInputs.map((i) => i.value = null)
+        },
+        deleteItem(event) {
+            this.vetList.splice(event, 1);
         }
-    }
+    },
+    // mounted(){
+    //     console.log(this.vetList[index])
+    // }
 }
 </script>
