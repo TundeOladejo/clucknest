@@ -1,7 +1,7 @@
 <template>
-    <bread-crumb title="Contacts" />
+    <bread-crumb title="Company Staffs" />
 
-    <custom-modal modalTitle="New Contact" :modalInputs="modalInputs" :saveModalForm="saveContactList"></custom-modal>
+    <custom-modal modalTitle="New Staff" :modalInputs="modalInputs" :saveModalForm="saveStaffList"></custom-modal>
 
     <div v-if="isListEmpty == true" class="d-flex justify-content-center fs-1 gap-2">
         <i class="bi bi-exclamation-circle"></i>
@@ -32,6 +32,10 @@
                                 <span>{{ card.email }}</span>
                             </div>
                             <div class="d-flex gap-1 flex-wrap">
+                                <span class="fw-bold">Job Title</span>
+                                <span>{{ card.jobTitle }}</span>
+                            </div>
+                            <div class="d-flex gap-1 flex-wrap">
                                 <span class="fw-bold">Category:</span>
                                 <span class="d-flex gap-2">
                                     <span v-for="(rol, index) in card.role" :key="index"
@@ -53,7 +57,7 @@ import ActionComponent from '../content/ActionComponent.vue';
 import CustomModal from '../modals/CustomModal.vue'
 
 export default {
-    name: "ClientsAndVendors",
+    name: "CompanyStaffs",
     components: { BreadCrumb, CustomModal, ActionComponent },
     data: () => ({
         modalInputs: [
@@ -61,11 +65,13 @@ export default {
             { type: "text", label: "Address", id: "address", placeholder: "Address", modalWrapperClass: "col-md-12" },
             { type: "tel", label: "Phone Number", id: "phoneNum", placeholder: "+2340123456789", modalWrapperClass: "col-md-12" },
             { type: "email", label: "Email Address", id: "email", placeholder: "hello@email.com", modalWrapperClass: "col-md-12" },
+            { type: "text", label: "Job Title", id: "jobTitle", placeholder: "Farm Attendant", modalWrapperClass: "col-md-12" },
             {
                 isCheckBox: true, isInput: false, label: "Role", id: "role", selected: [],
                 checkBoxes: [
-                    { id: "customer", name: "Is Customer" },
-                    { id: "vendor", name: "Is Vendor" }
+                    { id: "admin", name: "Is Admin" },
+                    { id: "supervisor", name: "Is Supervisor" },
+                    { id: "worker", name: "Is Worker" }
                 ],
                 modalWrapperClass: "col-md-6"
             },
@@ -74,7 +80,7 @@ export default {
         isListEmpty: true
     }),
     methods: {
-        saveContactList() {
+        saveStaffList() {
             let inputValues = this.modalInputs.map((i) => i.value || i.selected)
 
             this.cards.push({
@@ -82,7 +88,8 @@ export default {
                 address: inputValues[1],
                 phoneNum: inputValues[2],
                 email: inputValues[3],
-                role: inputValues[4]
+                jobTitle: inputValues[4],
+                role: inputValues[5]
             })
             this.clearForm()
             this.isListEmpty = false

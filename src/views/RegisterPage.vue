@@ -1,10 +1,10 @@
 <template>
     <div class="register">
         <div class="row m-0">
-            <div class="col-md-5 right-side p-0">
+            <div class="d-none d-md-flex col-md-5 right-side p-0">
                 <img src="../assets/img/lady-with-hens.jpg" class="img-fluid" alt="" srcset="">
             </div>
-            <div class="col-md-7 left-side">
+            <div class="col-md-7 container left-side">
                 <router-link to="/" class="home-logo">
                     <i class="bi bi-house"></i>
                 </router-link>

@@ -40,7 +40,7 @@ export default {
         flex-direction: column;
 
         .heading-text {
-            font-size: 56px;
+            font-size: 48px;
             color: #0d0d0d;
             font-weight: bold;
         }

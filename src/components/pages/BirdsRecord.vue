@@ -7,9 +7,9 @@
         <span>No Record Yet</span>
     </div>
     <div v-else class="row mt-3">
-        <div v-for="(card, index) in cards" :key="index" class="col-md-4 col-sm-6 mb-3">
+        <div v-for="(card, index) in cards" :key="index" class="col-md-6 col-lg-4 mb-3">
             <div class="card p-1 shadow">
-                <div class="card-header bg-white d-flex justify-content-between">
+                <div class="card-header bg-white d-flex justify-content-between flex-wrap">
                     <div class="d-flex">
                         <span class="fw-bold text-truncate" style="max-width: 180px;">{{ card.flockName }}</span>
                     </div>

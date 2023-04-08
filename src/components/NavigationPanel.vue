@@ -5,9 +5,9 @@
             <!-- <img src="" alt="farm avatar" class="img-fluid farm-avatar" > -->
             <p class="nav-avatar fw-bold">OF</p>
             <p class="d-md-none fs-3 nav-collapse" data-bs-toggle="collapse"
-                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                data-bs-target="#collapseExample" aria-controls="collapseExample">
                <i class="bi bi-list"></i>
-        </p>
+            </p>
         </div>
 
         <div class="collapse mt-5 d-md-block" id="collapseExample">
@@ -44,12 +44,15 @@
             <div class="mb-5">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">Financial Statement</li>
+                    
                 </ul>
             </div>
 
             <div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Staffs</li>
+                    <li class="list-group-item">
+                        <router-link class="stretched-link" :to="{ name: 'CompanyStaffs' }">Staffs</router-link>
+                    </li>
                     <li class="list-group-item">
                         <router-link class="stretched-link" :to="{ name: 'ClientsAndVendors' }">Contacts</router-link>
                     </li>

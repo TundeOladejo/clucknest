@@ -76,14 +76,14 @@
                 </tr>
             </thead>
             <tbody v-if="isFeeding">
-                <tr v-for="(entry, i) in feedingList" :key="i">
-                    <th scope="row">{{ ++i }} </th>
+                <tr v-for="(entry, index) in feedingList" :key="index">
+                    <th scope="row">{{ ++index }} </th>
                     <td>{{ entry.flock }} </td>
                     <td>{{ entry.date }} </td>
                     <td>{{ entry.feedType }} </td>
                     <td>{{ entry.quantity }} </td>
                     <td>{{ dateTime(entry.dateUpdated) }} </td>
-                    <td><action-component></action-component></td>
+                    <td><action-component :hasDetail="index == itemId" :getIndex="getIndex(index)" :viewDetailsTitle="viewDetailsTitle"></action-component></td>
                 </tr>
             </tbody>
 
@@ -142,6 +142,11 @@ import ActionComponent from './ActionComponent.vue';
 export default {
     name: "TablesComponent",
     components: { ActionComponent },
+    data(){
+        return {
+            itemId: null
+        }
+    },
     props: {
         isListEmpty: Boolean,
         isExepnse: Boolean,
@@ -155,12 +160,16 @@ export default {
         isVetRecord: Boolean,
         vetList: Array,
         viewDetails: Array,
-        deleteItem: Function
+        deleteItem: Function,
+        viewDetailsTitle: String
     },
     methods: {
         dateTime(value) {
             return moment(value).format('YYYY-MM-DD hh:mm');
         },
+        getIndex(value) {
+            this.itemId = value - 1
+        }
     },
 }
 </script>

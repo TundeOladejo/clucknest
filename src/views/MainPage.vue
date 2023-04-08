@@ -31,7 +31,7 @@
 <script>
 import NavigationPanel from '../components/NavigationPanel.vue'
 export default {
-     components: { NavigationPanel },
+    components: { NavigationPanel },
     name: "MainPage"
 }
 </script>
