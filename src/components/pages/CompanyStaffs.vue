@@ -14,14 +14,17 @@
                     <div class="d-flex">
                         <span class="fw-bold text-truncate" style="max-width: 180px;">{{ card.fullName }}</span>
                     </div>
-                    <action-component></action-component>
+                    <action-component :viewItem="viewItem(index)" viewDetailsTitle="Staffs Record"
+                        :viewDetails="viewDetails"
+                        :selectedItem="selectedItem.id == index ? true : false"></action-component>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
                             <div class="d-flex align-items-center gap-1 flex-wrap">
                                 <span class="fw-bold">Address:</span>
-                                <span class="d-inline-block text-truncate" style="max-width: 150px;">{{ card.address }}</span>
+                                <span class="d-inline-block text-truncate" style="max-width: 150px;">{{ card.address
+                                }}</span>
                             </div>
                             <div class="d-flex gap-1 flex-wrap">
                                 <span class="fw-bold">Tel:</span>
@@ -38,8 +41,8 @@
                             <div class="d-flex gap-1 flex-wrap">
                                 <span class="fw-bold">Category:</span>
                                 <span class="d-flex gap-2">
-                                    <span v-for="(rol, index) in card.role" :key="index"
-                                        class="badge text-bg-primary">{{ rol }}</span>
+                                    <span v-for="(rol, index) in card.role" :key="index" class="badge text-bg-primary">{{
+                                        rol }}</span>
                                 </span>
                             </div>
                         </div>
@@ -48,7 +51,6 @@
             </div>
         </div>
     </div>
-
 </template>
 
 <script>
@@ -58,13 +60,17 @@ import CustomModal from '../modals/CustomModal.vue'
 
 export default {
     name: "CompanyStaffs",
+    props: {
+        viewDetailsTitle: String,
+    },
     components: { BreadCrumb, CustomModal, ActionComponent },
     data: () => ({
         modalInputs: [
             { type: "text", label: "Full Name", id: "fullName", modalWrapperClass: "col-md-12" },
             { type: "text", label: "Address", id: "address", placeholder: "Address", modalWrapperClass: "col-md-12" },
-            { type: "tel", label: "Phone Number", id: "phoneNum", placeholder: "+2340123456789", modalWrapperClass: "col-md-12" },
             { type: "email", label: "Email Address", id: "email", placeholder: "hello@email.com", modalWrapperClass: "col-md-12" },
+            { type: "tel", label: "Phone Number", id: "phoneNum", placeholder: "+2340123456789", modalWrapperClass: "col-md-6" },
+            { type: "date", label: "Date Joined", id: "dateJoined", modalWrapperClass: "col-md-6" },
             { type: "text", label: "Job Title", id: "jobTitle", placeholder: "Farm Attendant", modalWrapperClass: "col-md-12" },
             {
                 isCheckBox: true, isInput: false, label: "Role", id: "role", selected: [],
@@ -80,16 +86,21 @@ export default {
         isListEmpty: true
     }),
     methods: {
+        viewItem(item) {
+            if (item !== this.selectedItem) {
+                return this.selectedItem = item;
+            }
+        },
         saveStaffList() {
             let inputValues = this.modalInputs.map((i) => i.value || i.selected)
 
             this.cards.push({
                 fullName: inputValues[0],
                 address: inputValues[1],
-                phoneNum: inputValues[2],
-                email: inputValues[3],
+                phoneNum: inputValues[3],
+                email: inputValues[2],
                 jobTitle: inputValues[4],
-                role: inputValues[5]
+                role: inputValues[6]
             })
             this.clearForm()
             this.isListEmpty = false

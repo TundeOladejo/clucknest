@@ -28,7 +28,7 @@
                     <td>{{ entry.quantity }}</td>
                     <td>{{ entry.cost }}</td>
                     <td>{{ entry.paymentMethod }}</td>
-                    <td>{{ entry.paymentStatus}}</td>
+                    <td>{{ entry.paymentStatus }}</td>
                     <td>{{ dateTime(entry.dateUpdated) }}</td>
                     <td><action-component></action-component></td>
                 </tr>
@@ -58,7 +58,7 @@
                     <td>{{ entry.value }}</td>
                     <td>{{ entry.totalValue }}</td>
                     <td>{{ entry.paymentMethod }}</td>
-                    <td>{{ entry.paymentStatus}}</td>
+                    <td>{{ entry.paymentStatus }}</td>
                     <td>{{ dateTime(entry.dateUpdated) }}</td>
                     <td> <action-component></action-component></td>
                 </tr>
@@ -76,14 +76,18 @@
                 </tr>
             </thead>
             <tbody v-if="isFeeding">
-                <tr v-for="(entry, index) in feedingList" :key="index">
-                    <th scope="row">{{ ++index }} </th>
+                <tr v-for="entry in feedingList" :key="entry.id">
+                    <td>{{ entry.id }} </td>
                     <td>{{ entry.flock }} </td>
                     <td>{{ entry.date }} </td>
                     <td>{{ entry.feedType }} </td>
                     <td>{{ entry.quantity }} </td>
                     <td>{{ dateTime(entry.dateUpdated) }} </td>
-                    <td><action-component :hasDetail="index == itemId" :getIndex="getIndex(index)" :viewDetailsTitle="viewDetailsTitle"></action-component></td>
+                    <td>
+                        <action-component :viewItem="viewItem(entry.id)" viewDetailsTitle="Feeding Record"
+                            :viewDetails="viewDetails"
+                            :selectedItem="selectedItem.id == entry.id ? true : false"></action-component>
+                    </td>
                 </tr>
             </tbody>
 
@@ -128,7 +132,10 @@
                     <td>{{ entry.date }} </td>
                     <td>{{ entry.medName }} </td>
                     <td>{{ dateTime(entry.dateUpdated) }} </td>
-                    <td><action-component viewDetailsTitle="Vet Record" :viewDetails="viewDetails" :deleteItem="deleteItem"></action-component></td>
+                    <td>
+                        <action-component viewDetailsTitle="Vet Record" :viewDetails="viewDetails" :deleteItem="deleteItem">
+                        </action-component>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -139,14 +146,22 @@
 import moment from 'moment';
 import ActionComponent from './ActionComponent.vue';
 
+
 export default {
     name: "TablesComponent",
     components: { ActionComponent },
-    data(){
+    data() {
         return {
-            itemId: null
+            itemId: null,
+            selectedItem: null,
+            arrIndex: null,
         }
     },
+    // watch:{
+    //     selectedItem(newValue) {
+    //         return newValue
+    //     },
+    // },
     props: {
         isListEmpty: Boolean,
         isExepnse: Boolean,
@@ -159,17 +174,19 @@ export default {
         eggList: Array,
         isVetRecord: Boolean,
         vetList: Array,
-        viewDetails: Array,
         deleteItem: Function,
-        viewDetailsTitle: String
+        viewDetailsTitle: String,
+        viewDetails: Array
     },
     methods: {
         dateTime(value) {
             return moment(value).format('YYYY-MM-DD hh:mm');
         },
-        getIndex(value) {
-            this.itemId = value - 1
-        }
+        viewItem(item) {
+            if (item !== this.selectedItem) {
+                return this.selectedItem = item;
+            }
+        },
     },
 }
 </script>

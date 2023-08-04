@@ -97,7 +97,7 @@ export default {
 
         submit: function () {
             this.$router.push({
-                name: "MainPage",
+                name: "MainDashboard",
             });
         }
     }

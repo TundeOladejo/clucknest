@@ -10,3 +10,12 @@
     color: $headline;
     border-radius: 5px;
 }
+
+.main-header {
+    height: auto;
+
+    @include media-breakpoint-up(md) {
+        height: 100vh;
+        overflow: auto;
+    }
+}

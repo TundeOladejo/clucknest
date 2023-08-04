@@ -24,6 +24,11 @@ const routes = [
         component: () => import(/* webpackChunkName: "MainPage" */ "../views/MainPage"),
         children: [
             {
+                path: 'dashboard',
+                name: 'MainDashboard',
+                component: () => import(/* webpackChunkName: "MainDashboard" */ "../components/pages/MainDashboard")
+            },
+            {
                 path: 'expenses-record',
                 name: 'ExpensesRecord',
                 component: () => import(/* webpackChunkName: "ExpensesRecord" */ "../components/pages/ExpensesRecord")
