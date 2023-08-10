@@ -4,16 +4,16 @@
             <div class="col-12 col-md-6 mb-5">
                 <h4 class="mb-3">Feeding Overview</h4>
                 <div class="row justify-content-center gap-3">
-                    <div v-for="(item, index) in feedings" :key="index" class="col-5 col-md-5 border shadow p-3 mb-2">
+                    <div v-for="(item, index) in feedings" :key="index" class="col-5 col-md-5 rounded shadow p-3 mb-2">
                         <span class="fw-bold pb-1">{{ item.name }}</span> <br>
-                        {{ item.value }}
+                        {{ item.value + `kg` }}
                     </div>
                 </div>
             </div>
             <div class="col-12 col-md-6 mb-5">
                 <h4 class="mb-3">Eggs Collection Overview</h4>
                 <div class="row justify-content-center gap-3">
-                    <div v-for="(item, index) in eggs" :key="index" class="col-5 col-md-5 border shadow p-3 mb-2">
+                    <div v-for="(item, index) in eggs" :key="index" class="col-5 col-md-5 rounded shadow p-3 mb-2">
                         <span class="fw-bold pb-1">{{ item.name }}</span> <br>
                         {{ item.value }}
                     </div>
@@ -34,7 +34,7 @@
                     <div class="col-12 col-md-6 mb-5">
                         <div class="row justify-content-center gap-3">
                             <div v-for="(item, index) in financials" :key="index"
-                                class="col-5 col-md-5 border shadow p-3 mb-2">
+                                class="col-5 col-md-5 rounded shadow p-3 mb-2">
                                 <span class="fw-bold pb-1">{{ item.name }}</span> <br>
                                 {{ item.value }}
                             </div>

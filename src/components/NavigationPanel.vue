@@ -40,8 +40,9 @@
                     <li class="list-group-item" @click="collapseNavbar">
                         <router-link class="stretched-link" :to="{ name: 'ClientsAndVendors' }">Contacts</router-link>
                     </li>
-                    <li class="list-group-item" @click="collapseNavbar">Roles</li>
-                    <li class="list-group-item" @click="collapseNavbar">Settings</li>
+                    <li class="list-group-item" @click="collapseNavbar">
+                        <router-link class="stretched-link" :to="{ name: 'SettingsPage' }">Settings</router-link>
+                    </li>
                 </ul>
             </div>
         </div>
