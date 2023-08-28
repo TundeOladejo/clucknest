@@ -1,26 +1,21 @@
 <template>
-  <div class="form-input__wrapper">
-    <label :for="id" class="form-label">{{ label }}</label>
-    <input
-      :type="type"
-      :id="id"
-      class="form-control"
-      :isNumber="isNumber"
-      :class="extraClass"
-      :placeholder="placeholder"
-      :isAmount="isAmount"
-      :isAccNumber="isAccNumber"
-      @input="onInput"
-      @blur="onBlur"
-      @change="onChange"
-      @focus="onFocus"
-      v-model="value"
-    />
-    <span class="icon position-absolute">
-      <i class="bi" :class="iconClass" />
-    </span>
-    <p v-if="showError" class="error-msg">{{ errorMsg }}</p>
-  </div>
+  <div>
+    <div class="form-input__wrapper" :class="hasContent">
+        <input :class="this.type === 'password' ? 'password-input' : ''" :id="id" :inputmode="inputMode"
+            :placeholder="placeholder" :pattern="pattern" :isNumber="isNumber"
+            :type="type === 'password' ? passwordType : type" :maxlength="maxlength" @blur="onBlur" @focus="onFocus"
+            @input="onInput" autocomplete="off" ref="formInput" v-model="value" :readonly="readonly"
+            :disabled="disabled" />
+        <i @click.prevent="hidePassword = !hidePassword" class="form-input__show-password"
+            v-if="type === 'password'">
+            <icon-base :view-box="[0, 0, 24, 24]" height="100%" icon-name="show/hide" width="24px">
+                <IconHide v-show="!hidePassword" />
+                <IconShow v-show="hidePassword" />
+            </icon-base>
+        </i>
+    </div>
+    <p class="error-msg" v-if="showError">{{ errorMsg }}</p>
+</div>
 </template>
 
 <script>
@@ -54,6 +49,18 @@ export default {
       this.onInput();
     }
   },
+  created() {
+        if (this.inputValue) this.value = this.inputValue.toString();
+        if (this.value) {
+            this.hasContent = "has-content";
+        }
+    },
+
+    updated() {
+        if (this.value) {
+            this.hasContent = "has-content";
+        }
+    },
   methods: {
     onChange: function () {
       this.$emit("change", this.value);
@@ -124,15 +131,15 @@ export default {
       this.emitValue();
     },
     emitValue: function () {
-      if (this.isAmount) {
-        this.$emit("input", Number(this.value.replace(/,/g, "")));
-      } else if (this.type === "email" || this.isAccNumber) {
+      let value = this.$refs.formInput.value;
+      if (this.type === "email") {
         this.$emit("input", {
-          value: this.value,
+          value: value,
           isValid: !this.errorMsg,
         });
-      } else {
-        this.$emit("input", this.value);
+      }
+      else {
+        this.$emit("input", value);
       }
       this.$emit("change", this.value);
     },

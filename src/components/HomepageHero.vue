@@ -4,7 +4,7 @@
             <div class="row col-md-12">
                 <div class="col-md-7 py-2">
                     <p class="py-3 heading-text">
-                        A new systematic digital approach into poultry management system.
+                        A systematic digital approach into poultry management system.
                     </p>
                     <router-link to="/register">
                         <custom-button :type="button" :btnClass="'btn btn-brand-primary'" :btnText="'Get Started'" />
@@ -40,7 +40,7 @@ export default {
         flex-direction: column;
 
         .heading-text {
-            font-size: 48px;
+            font-size: 36px;
             color: #0d0d0d;
             font-weight: bold;
         }

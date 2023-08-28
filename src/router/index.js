@@ -67,6 +67,11 @@ const routes = [
                 path: 'staffs-record',
                 name: 'CompanyStaffs',
                 component: () => import(/* webpackChunkName: "ClientsAndVendors" */ "../components/pages/CompanyStaffs")
+            },
+            {
+                path: 'settings',
+                name: 'SettingsPage',
+                component: () => import(/* webpackChunkName: "SettingsPage" */ "../components/pages/SettingsPage")
             }
         ]
     },

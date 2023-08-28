@@ -1,8 +1,8 @@
 <template>
     <div class="col-12 col-md-3 sidebar">
         <div class="d-flex justify-content-between align-items-center gap-3">
-            <span class="nav-title">Cluck Farms</span>
-            <span class="nav-avatar fw-bold">CF</span>
+            <span class="nav-title">{{ companyName }}</span>
+            <span class="nav-avatar fw-bold">{{ companyInitials }}</span>
             <span class="d-md-none fs-3 nav-collapse" data-bs-toggle="collapse" data-bs-target="#collapseNavigation"
                 aria-controls="collapseNavigation" @click="toggleNavbar">
                 <i class="bi bi-list"></i>
@@ -52,6 +52,10 @@
 <script>
 export default {
     name: "NavigationPanel",
+    props: {
+        companyName: String,
+        companyInitials: String
+    },
     data() {
         return {
             isNavbarOpen: false,
@@ -64,6 +68,11 @@ export default {
                 { name: "FeedingRecord", label: "Feed" },
             ]
         };
+    },
+    computed: {
+        currentUser() {
+            return this.$store.state.auth.user;
+        }
     },
     methods: {
         toggleNavbar() {

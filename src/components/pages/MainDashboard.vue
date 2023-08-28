@@ -76,6 +76,11 @@ export default {
                 { name: "This Year", value: 98500 },
             ]
         }
-    }
+    },
+    computed: {
+        currentUser() {
+            return this.$store.state.auth.user;
+        }
+    },
 }
 </script>

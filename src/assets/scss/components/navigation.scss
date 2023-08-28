@@ -31,7 +31,12 @@
     }
     &-avatar {
         background-color: $tertiary;
-        padding: 12px;
         border-radius: 50%;
+        color: $white;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }
