@@ -46,7 +46,6 @@ export default {
             companyInitials = "Asiwaju Farms"
             const name = companyInitials.split(' ')
             return  `${name[0].charAt(0)}${name[1] ? name[1].charAt(0) : ''}`
-            // return this.companyInitials
         }
     },
     computed: {

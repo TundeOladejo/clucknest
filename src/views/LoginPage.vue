@@ -37,9 +37,6 @@
           </div>
         </Form>
 
-        <!-- <custom-button type="submit" btnText="Login" btnClass="btn-brand-secondary" :disabled="!isValid"
-                    @click.prevent="handleLogin" /> -->
-
         <p class="text-center mt-3">
           <em>Not yet registered? click </em>
           <router-link class="text-info" to="/register"> here </router-link>
@@ -93,7 +90,9 @@ export default {
         (error) => {
           this.loading = false;
           this.message =
-            (error.response && error.response.data && error.response.data.message) ||
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
             error.message ||
             error.toString();
         }
